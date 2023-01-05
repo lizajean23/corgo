@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "649367556568",
+    "project_id": "corgo-6c59e",
+    "storage_bucket": "corgo-6c59e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649367556568:android:4e03a536ef3fa9d51ca2ad",
+        "android_client_info": {
+          "package_name": "com.example.corgo1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649367556568-3oasledu1q0hfd1ri7008mlff195e36n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe3Z-876O6VtI6T1Sn2jQtIdwR-rUjqDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649367556568-3oasledu1q0hfd1ri7008mlff195e36n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/LogInFragment">
+
+
+
+    <fragment
+        android:id="@+id/LogInFragment"
+        android:name="com.example.corgo1.registrationFragments.LogInFragment"
+        android:label="LogInFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_LogInFragment_to_SignUpFragment"
+            app:destination="@id/SignUpFragment" />
+        <action
+            android:id="@+id/action_LogInFragment_to_ForgotPasswordFragment"
+            app:destination="@id/ForgotPasswordFragment" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/SignUpFragment"
+        android:name="com.example.corgo1.registrationFragments.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_signup">
+
+        <action
+            android:id="@+id/action_SignUpFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ForgotPasswordFragment"
+        android:name="com.example.corgo1.registrationFragments.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot">
+
+        <action
+            android:id="@+id/action_ForgotPasswordFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment" />
+    </fragment>
+
+
+
+</navigation>
