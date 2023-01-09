@@ -24,7 +24,7 @@
         android:fontFamily="@font/font"
         android:text="Reset Password"
         android:textColor="#784B08"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,8 +47,6 @@
         android:background="@drawable/round"
         app:boxStrokeWidth="1dp"
         app:prefixTextColor="@color/black"
-        android:outlineSpotShadowColor="@color/black"
-        android:outlineAmbientShadowColor="@color/black"
         app:helperTextTextColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"

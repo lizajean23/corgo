@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/round"
-                android:fontFamily="@font/font"
+
                 android:inputType="textEmailAddress"
                 android:paddingLeft="5dp"
 
@@ -92,7 +92,6 @@
                 android:autoSizeMinTextSize="10sp"
                 android:inputType="textPassword"
                 android:paddingLeft="5dp"
-                android:fontFamily="@font/font"
                 android:background="@drawable/round"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:textSize="21sp"/>
@@ -119,10 +118,10 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPass" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/forgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password?"
