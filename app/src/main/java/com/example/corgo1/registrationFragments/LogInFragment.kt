@@ -21,7 +21,7 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
 
         _binding = FragmentLoginBinding.inflate(inflater,container,false)
         return binding.root
@@ -34,7 +34,7 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
         val password = binding.loginpassword.text.toString()
 
 
-        binding.LogIn.setOnClickListener { 
+        binding.LogIn.setOnClickListener {
             if(email.isEmpty() || password.isEmpty()){
                 Toast.makeText(requireContext(), "შეიყვანეთ მონაცემი", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -44,7 +44,7 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
                 .signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        val intent = Intent(requireContext(),HomeActivity::class.java)
+                        val intent = Intent(requireContext(), HomeActivity::class.java)
                         startActivity(intent)
                     }else{
                         Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
@@ -53,10 +53,10 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
                 }
 
         }
-//        binding.signup.setOnClickListener {
-//            val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
-//            controller.navigate(action)
-//       }
+        binding.signup.setOnClickListener {
+            val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
+            controller.navigate(action)
+       }
 
     }
 
