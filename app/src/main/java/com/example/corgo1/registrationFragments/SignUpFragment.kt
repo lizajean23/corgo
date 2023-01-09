@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentLoginBinding
+import com.example.corgo1.databinding.FragmentSignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SignUpFragment:Fragment(R.layout.fragment_signup) {
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +22,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+        _binding = FragmentSignupBinding.inflate(inflater,container,false)
         return binding.root
     }
 
