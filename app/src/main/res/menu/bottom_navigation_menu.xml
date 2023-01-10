@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/feedFragment"
+        android:icon="@drawable/ic_baseline_feed"
+        android:title="Feed"/>
+
+    <item android:id="@+id/postFragment"
+        android:icon="@drawable/ic_baseline_post"
+        android:title="Post"/>
+    <item android:id="@+id/vaccineFragment"
+        android:icon="@drawable/ic_baseline_vaccines_24"
+        android:title="Vaccines"/>
+    <item android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_profile"
+        android:title="Profile"/>
+
+</menu>

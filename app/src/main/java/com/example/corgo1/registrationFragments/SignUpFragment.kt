@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.corgo1.HomeActivity
 import com.example.corgo1.R
+import com.example.corgo1.databinding.FragmentLoginBinding
 import com.example.corgo1.databinding.FragmentSignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -31,9 +32,9 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         binding.registration.setOnClickListener{
+
+
 
             val email = binding.registrationEmail.text.toString()
             val password = binding.passwordSignUp.text.toString()
@@ -55,7 +56,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                 }else if(password.length<6){
                     binding.passLayout.helperText = "*Minimum 6 characters"
                 }else if(password != repeatPassword){
-                   binding.repeatPassLayout.helperText = "*Passwords do not match"
+                    binding.repeatPassLayout.helperText = "*Passwords do not match"
                 }
             }else{
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_LONG).show()

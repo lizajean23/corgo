@@ -30,6 +30,9 @@
         tools:layout="@layout/fragment_signup">
 
 
+        <action
+            android:id="@+id/action_SignUpFragment_to_LogInFragment"
+            app:destination="@id/LogInFragment" />
     </fragment>
 
     <fragment

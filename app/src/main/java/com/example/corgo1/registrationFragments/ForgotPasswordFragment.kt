@@ -30,7 +30,7 @@ class ForgotPasswordFragment:Fragment(R.layout.fragment_forgot) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val email = binding.resetEmail.text.toString()
+        val email = binding.resetEmail.toString()
         binding.resetButton.setOnClickListener {
 
             if(email.isEmpty()){

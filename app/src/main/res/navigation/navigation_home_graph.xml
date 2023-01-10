@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_home_graph"
+    app:startDestination="@id/feedFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.corgo1.appFragments.FeedFragment"
+        android:label="feedFragment"
+        tools:layout="@layout/fragment_feed">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.corgo1.appFragments.PostFragment"
+        android:label="postFragment"
+        tools:layout="@layout/fragment_post">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.corgo1.appFragments.ProfileFragment"
+        android:label="profileFragment"
+        tools:layout="@layout/fragment_profile">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/vaccineFragment"
+        android:name="com.example.corgo1.appFragments.VaccineFragment"
+        android:label="vaccineFragment"
+        tools:layout="@layout/fragment_vaccine">
+
+    </fragment>
+
+
+
+
+</navigation>
