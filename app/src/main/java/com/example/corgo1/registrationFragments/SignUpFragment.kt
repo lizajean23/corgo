@@ -8,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.example.corgo1.HomeActivity
 import com.example.corgo1.R
-import com.example.corgo1.databinding.FragmentLoginBinding
 import com.example.corgo1.databinding.FragmentSignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -52,7 +50,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                         }
                     }
                 }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    binding.emailLayout.helperText = "*Enter a valid adress"
+                    binding.emailLayout.helperText = "*Enter a valid address"
                 }else if(password.length<6){
                     binding.passLayout.helperText = "*Minimum 6 characters"
                 }else if(password != repeatPassword){
