@@ -33,16 +33,16 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         val controller = Navigation.findNavController(view)
         val email = binding.email.toString()
-        val password = binding.password.text.toString()
+        val password = binding.password.toString()
 
 
         binding.LogIn.setOnClickListener {
              if(email.isEmpty()){
                 Toast.makeText(requireContext(), "enter email", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                 return@setOnClickListener
             }else if (password.isEmpty()){
                 Toast.makeText(requireContext(), "enter password", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                 return@setOnClickListener
 
             }
             FirebaseAuth.getInstance()
