@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.corgo1.HomeActivity
-import com.example.corgo1.MainActivity
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +17,8 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
 
     private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private var firebaseAuth =  FirebaseAuth.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,34 +31,34 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         val controller = Navigation.findNavController(view)
-        val email = binding.email.toString()
-        val password = binding.password.toString()
 
 
         binding.LogIn.setOnClickListener {
-             if(email.isEmpty()){
-                Toast.makeText(requireContext(), "enter email", Toast.LENGTH_SHORT).show()
-                 return@setOnClickListener
-            }else if (password.isEmpty()){
-                Toast.makeText(requireContext(), "enter password", Toast.LENGTH_SHORT).show()
-                 return@setOnClickListener
 
-            }
-            FirebaseAuth.getInstance()
-                .signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful){
-                        val intent = Intent(requireContext(), HomeActivity::class.java)
-                        startActivity(intent)
-                    }else{
-                        Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
-                    }
+            val email = binding.email.text.toString()
+            val password = binding.password.text.toString()
 
-                }
+            if(email.isNotEmpty() && password.isNotEmpty()) {
+
+                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
+                     if(it.isSuccessful) {
+                         val intent = Intent(requireContext(), HomeActivity::class.java)
+                         startActivity(intent)
+                     } else{
+                         Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
+                     }
+                 }
+             } else {
+                 Toast.makeText(requireContext(), "Fill in all fields", Toast.LENGTH_SHORT).show()
+             }
+
 
         }
+
+
         binding.signup.setOnClickListener {
             val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
             controller.navigate(action)

@@ -49,10 +49,11 @@
             android:layout_margin="5dp"
             android:layout_weight="1">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
                 android:background="@drawable/round"
                 android:hint="Email*" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +65,7 @@
             android:layout_weight="1"
             app:endIconMode="password_toggle">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
