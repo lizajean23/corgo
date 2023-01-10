@@ -33,9 +33,6 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val controller = Navigation.findNavController(view)
-        val email = binding.email.toString()
-        val password = binding.password.text.toString()
-
 
         binding.LogIn.setOnClickListener {
 
@@ -49,7 +46,7 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
                         val intent = Intent(requireContext(), HomeActivity::class.java)
                         startActivity(intent)
                     } else{
-                        Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), it.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {

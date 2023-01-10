@@ -48,7 +48,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                             val intent = Intent(requireContext(), HomeActivity::class.java)
                             startActivity(intent)
                         }else{
-                            Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), it.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
