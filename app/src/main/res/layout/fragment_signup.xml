@@ -119,13 +119,32 @@
             android:backgroundTint="#FF9800"
             android:fontFamily="@font/font"
             android:layout_marginTop="20dp"
-            android:text="registrate"
+            android:text="SIGN UP"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/backSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/font"
+        android:gravity="center"
+        android:text="GO BACK TO SIGN IN"
+        android:textColor="#644011"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

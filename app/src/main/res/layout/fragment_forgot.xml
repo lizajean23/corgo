@@ -21,8 +21,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="300dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,8 +50,8 @@
         android:layout_margin="20dp"
         android:backgroundTint="#FF9800"
         android:fontFamily="@font/font"
-        android:textColor="@color/white"
         android:text="Reset Password"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,15 +61,15 @@
         android:id="@+id/backSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="GO BACK TO SIGN IN"
-        android:textSize="17sp"
         android:fontFamily="@font/font"
-        android:textColor="#FF9800"
+        android:text="GO BACK TO SIGN IN"
+        android:textColor="#644011"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resetButton">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="40dp">
 
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
