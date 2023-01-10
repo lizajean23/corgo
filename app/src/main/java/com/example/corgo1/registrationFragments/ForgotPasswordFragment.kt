@@ -8,14 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentForgotBinding
-import com.example.corgo1.databinding.FragmentLoginBinding
-import com.example.corgo1.databinding.FragmentSignupBinding
+
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPasswordFragment:Fragment(R.layout.fragment_forgot) {
 
     private var _binding: FragmentForgotBinding? = null
     private val binding get() = _binding!!
+    private var firebaseAuth =  FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,23 +30,21 @@ class ForgotPasswordFragment:Fragment(R.layout.fragment_forgot) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val email = binding.resetEmail.toString()
         binding.resetButton.setOnClickListener {
 
-            if(email.isEmpty()){
-                Toast.makeText(requireContext(), "შეიყვანეთ მონაცემი", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            val email = binding.resetEmail.text.toString()
 
-            }
-            FirebaseAuth.getInstance()
-                .sendPasswordResetEmail(email)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(requireContext(), "We've sent you email to reset password", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
+            if(email.isNotEmpty()) {
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener{
+                    if(it.isSuccessful) {
+                        Toast.makeText(requireContext(),"Email Sent", Toast.LENGTH_SHORT).show()
+                    } else{
+                        Toast.makeText(requireContext(), it.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
+            } else {
+                Toast.makeText(requireContext(), "Enter e-mail", Toast.LENGTH_SHORT).show()
+            }
 
         }
         
