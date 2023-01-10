@@ -28,16 +28,30 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val controller = Navigation.findNavController(view)
 
-        val email = binding.registrationEmail.text.toString()
-        val password = binding.passwordSignUp.text.toString()
-        val repeatPassword = binding.repeatPassword.text.toString()
+        var email = binding.registrationEmail.text.toString()
+        var password = binding.passwordSignUp.text.toString()
+        var repeatPassword = binding.repeatPassword.text.toString()
+
+
+        
 
         binding.registration.setOnClickListener{
-            if (email.isEmpty() || password.isEmpty()){
-                Toast.makeText(requireContext(), "შეიყვანეთ მონაცემი", Toast.LENGTH_SHORT).show()
+
+
+
+            if(email.isEmpty()){
+                Toast.makeText(requireContext(), "enter email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            }else if (password.isEmpty()){
+                Toast.makeText(requireContext(), "enter password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+
+            }else if (repeatPassword.isEmpty()){
+                Toast.makeText(requireContext(), "repeat password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if(password != repeatPassword){
+                Toast.makeText(requireContext(), "passwords don't match", Toast.LENGTH_SHORT).show()
             }
             FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email,password)

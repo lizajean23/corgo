@@ -9,11 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.corgo1.HomeActivity
+import com.example.corgo1.MainActivity
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class LogInFragment:Fragment(R.layout.fragment_login) {
+
     private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -30,13 +32,16 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val controller = Navigation.findNavController(view)
-        val email = binding.loginemail.text.toString()
-        val password = binding.loginpassword.text.toString()
+        val email = binding.email.toString()
+        val password = binding.password.text.toString()
 
 
         binding.LogIn.setOnClickListener {
-            if(email.isEmpty() || password.isEmpty()){
-                Toast.makeText(requireContext(), "შეიყვანეთ მონაცემი", Toast.LENGTH_SHORT).show()
+             if(email.isEmpty()){
+                Toast.makeText(requireContext(), "enter email", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else if (password.isEmpty()){
+                Toast.makeText(requireContext(), "enter password", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
 
             }

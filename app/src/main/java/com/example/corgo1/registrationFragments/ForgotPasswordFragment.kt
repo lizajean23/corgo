@@ -31,16 +31,25 @@ class ForgotPasswordFragment:Fragment(R.layout.fragment_forgot) {
         super.onViewCreated(view, savedInstanceState)
 
         val email = binding.resetEmail.text.toString()
-        
-        FirebaseAuth.getInstance()
-            .sendPasswordResetEmail(email)
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    Toast.makeText(requireContext(), "We've sent you email to reset password", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
-                }
+        binding.resetButton.setOnClickListener {
+
+            if(email.isEmpty()){
+                Toast.makeText(requireContext(), "შეიყვანეთ მონაცემი", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+
             }
+            FirebaseAuth.getInstance()
+                .sendPasswordResetEmail(email)
+                .addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        Toast.makeText(requireContext(), "We've sent you email to reset password", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+        }
+        
 
 
     }

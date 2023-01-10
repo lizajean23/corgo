@@ -39,32 +39,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:hint="Email*"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/round"
-        app:boxStrokeWidth="1dp"
-        app:prefixTextColor="@color/black"
-        app:helperTextTextColor="@color/black"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/resetEmail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/round"
-            android:fontFamily="@font/font"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1">
 
-            android:textSize="20sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/resetEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round"
+                android:hint="Email*" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button
