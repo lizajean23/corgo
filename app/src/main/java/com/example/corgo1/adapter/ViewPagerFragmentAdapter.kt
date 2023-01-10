@@ -14,17 +14,13 @@ class ViewPagerFragmentAdapter (activity: AppCompatActivity): FragmentStateAdapt
     }
 
     override fun createFragment(position: Int): Fragment {
-        if(position == 0){
-            return FeedFragment()
+        return when(position){
+            0->FeedFragment()
+            1->PostFragment()
+            2->VaccineFragment()
+            3 -> ProfileFragment()
+            else ->FeedFragment()
         }
-        else if (position == 1) {
-            return PostFragment()
-        }else if(position == 2){
-            return VaccineFragment()
-        } else{
-            return ProfileFragment()
-        }
-
     }
 
 
