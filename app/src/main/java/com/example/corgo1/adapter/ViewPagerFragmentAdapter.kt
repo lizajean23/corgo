@@ -18,7 +18,8 @@ class ViewPagerFragmentAdapter (activity: AppCompatActivity): FragmentStateAdapt
             0->FeedFragment()
             1->PostFragment()
             2->VaccineFragment()
-            else -> ProfileFragment()
+            3 -> ProfileFragment()
+            else ->FeedFragment()
         }
     }
 

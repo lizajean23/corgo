@@ -10,9 +10,9 @@ import com.google.android.material.navigation.NavigationBarView
 
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var viewPager: ViewPager2
     private lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
+    private lateinit var bottomNavigationView: BottomNavigationView
     private val navigationItem = NavigationBarView.OnItemSelectedListener {
         when (it.itemId){
             R.id.feedFragment ->{
@@ -45,8 +45,8 @@ class HomeActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager)
         bottomNavigationView = findViewById(R.id.bottomNavView)
-        viewPager.adapter = viewPagerFragmentAdapter
         viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+        viewPager.adapter = viewPagerFragmentAdapter
         bottomNavigationView.setOnItemSelectedListener(navigationItem)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
