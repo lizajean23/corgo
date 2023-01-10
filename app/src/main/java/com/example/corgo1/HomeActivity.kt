@@ -45,10 +45,11 @@ class HomeActivity : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager)
         bottomNavigationView = findViewById(R.id.bottomNavView)
-        viewPager.adapter = viewPagerFragmentAdapter
         viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+        viewPager.adapter = viewPagerFragmentAdapter
         bottomNavigationView.setOnItemSelectedListener(navigationItem)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 when (position) {
