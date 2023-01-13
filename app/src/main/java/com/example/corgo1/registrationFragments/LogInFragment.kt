@@ -1,6 +1,7 @@
 package com.example.corgo1.registrationFragments
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
     private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private var firebaseAuth =  FirebaseAuth.getInstance()
+    private lateinit var  sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,19 +30,22 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
 
         _binding = FragmentLoginBinding.inflate(inflater,container,false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (FirebaseAuth.getInstance().currentUser != null){
+            startActivity(Intent(activity, HomeActivity::class.java))
+        }
+
         val controller = Navigation.findNavController(view)
-
-
 
         binding.LogIn.setOnClickListener {
 
+
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
-
             if(email.isNotEmpty() && password.isNotEmpty()) {
 
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
@@ -50,15 +55,13 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
                     } else{
                         Toast.makeText(requireContext(), it.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                     }
+
                 }
             } else {
                 Toast.makeText(requireContext(), "Fill in all fields", Toast.LENGTH_SHORT).show()
             }
 
-
-
         }
-
 
         binding.signup.setOnClickListener {
             val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
@@ -68,7 +71,6 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
             val action = LogInFragmentDirections.actionLogInFragmentToForgotPasswordFragment()
             controller.navigate(action)
         }
-
 
     }
 
