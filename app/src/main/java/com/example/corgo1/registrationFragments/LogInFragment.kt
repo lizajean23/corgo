@@ -56,12 +56,9 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
             }
 
 
-        }
-        if(FirebaseAuth.getInstance().currentUser != null){
-            val intent = Intent(activity,HomeActivity::class.java)
-            startActivity(intent)
 
         }
+
 
         binding.signup.setOnClickListener {
             val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
