@@ -9,7 +9,7 @@ import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentVaccineBinding
 
 class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
-    class FeedFragment:Fragment(R.layout.fragment_feed) {
+
 
         private var _binding: FragmentVaccineBinding? = null
         private val binding get() = _binding!!
@@ -33,5 +33,5 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
             _binding = null
         }
 
-    }
+
 }

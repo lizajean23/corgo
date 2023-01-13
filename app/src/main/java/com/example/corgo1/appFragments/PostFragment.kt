@@ -9,7 +9,7 @@ import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentPostBinding
 
 class PostFragment:Fragment(R.layout.fragment_post) {
-    class FeedFragment:Fragment(R.layout.fragment_feed) {
+
 
         private var _binding: FragmentPostBinding? = null
         private val binding get() = _binding!!
@@ -33,5 +33,5 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             _binding = null
         }
 
-    }
+
 }

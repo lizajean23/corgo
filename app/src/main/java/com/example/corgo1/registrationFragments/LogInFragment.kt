@@ -34,6 +34,8 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
         val controller = Navigation.findNavController(view)
 
+
+
         binding.LogIn.setOnClickListener {
 
             val email = binding.email.text.toString()
@@ -53,6 +55,11 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
                 Toast.makeText(requireContext(), "Fill in all fields", Toast.LENGTH_SHORT).show()
             }
 
+
+        }
+        if(FirebaseAuth.getInstance().currentUser != null){
+            val intent = Intent(activity,HomeActivity::class.java)
+            startActivity(intent)
 
         }
 

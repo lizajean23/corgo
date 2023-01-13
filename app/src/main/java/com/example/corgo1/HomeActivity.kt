@@ -1,5 +1,7 @@
 package com.example.corgo1
 
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
@@ -7,12 +9,15 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.corgo1.adapter.ViewPagerFragmentAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
     private lateinit var bottomNavigationView: BottomNavigationView
+
+
     private val navigationItem = NavigationBarView.OnItemSelectedListener {
         when (it.itemId){
             R.id.feedFragment ->{
@@ -48,6 +53,9 @@ class HomeActivity : AppCompatActivity() {
         viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
         viewPager.adapter = viewPagerFragmentAdapter
         bottomNavigationView.setOnItemSelectedListener(navigationItem)
+
+
+
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
             override fun onPageSelected(position: Int) {
@@ -62,13 +70,6 @@ class HomeActivity : AppCompatActivity() {
         })
 
     }
-    override fun onBackPressed() {
-        if (viewPager.currentItem == 0){
-            super.onBackPressed()
 
-        }else{
-            viewPager.currentItem = viewPager.currentItem - 1
-        }
 
-    }
 }
