@@ -33,6 +33,9 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
 
+
+
+
             binding.logOut.setOnClickListener {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent (view.context, MainActivity::class.java)

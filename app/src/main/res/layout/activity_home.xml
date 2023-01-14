@@ -18,9 +18,14 @@
         android:id="@+id/bottomNavView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#DC9936"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/nav_foreground"
+        app:itemTextColor="#1B1D23"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/bottom_navigation_menu"
+        app:itemRippleColor="@color/white"/>
 
 
 

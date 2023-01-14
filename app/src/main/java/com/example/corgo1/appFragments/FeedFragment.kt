@@ -1,6 +1,5 @@
 package com.example.corgo1.appFragments
 
-import RecyclerViewPostAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.corgo1.Posts
 import com.example.corgo1.R
+import com.example.corgo1.adapter.RecyclerViewPostAdapter
 import com.example.corgo1.databinding.FragmentFeedBinding
 
 class FeedFragment:Fragment(R.layout.fragment_feed) {
