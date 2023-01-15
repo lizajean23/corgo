@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.corgo1.Posts
+import com.example.corgo1.UserImage
 import com.example.corgo1.R
 import com.example.corgo1.appFragments.FeedFragment
 
 class RecyclerViewPostAdapter(
 
-    private val Post: ArrayList<Posts>,
+    private val Post: ArrayList<UserImage>,
     private val context: FeedFragment
     ) :
     RecyclerView.Adapter<RecyclerViewPostAdapter.PostViewHolder>() {

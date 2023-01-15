@@ -13,11 +13,13 @@ import com.example.corgo1.HomeActivity
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentSignupBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUpFragment:Fragment(R.layout.fragment_signup) {
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
     private var firebaseAuth =  FirebaseAuth.getInstance()
+    private val data = FirebaseDatabase.getInstance().getReference("UserInfo")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +47,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                 if(password == repeatPassword && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length >= 6){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
+                            data.child(firebaseAuth.currentUser?.uid!!).child("fullName").setValue(username)
                             val intent = Intent(requireContext(), HomeActivity::class.java)
                             startActivity(intent)
                         }else{

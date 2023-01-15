@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.corgo1.Posts
 import com.example.corgo1.R
+import com.example.corgo1.UserImage
 import com.example.corgo1.adapter.RecyclerViewPostAdapter
 import com.example.corgo1.databinding.FragmentFeedBinding
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +22,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
-    private lateinit var posts :ArrayList<Posts>
+    private lateinit var posts :ArrayList<UserImage>
     private lateinit var databaseReference: DatabaseReference
 
     override fun onCreateView(
@@ -46,10 +46,11 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    for (dataSnapshot in snapshot.children) {
-                        val image = dataSnapshot.getValue(Posts::class.java) ?: return
-                        posts.add(image!!)
-                    }
+                    //es xazebi uberavs arvici rato
+//                    for (dataSnapshot in snapshot.children) {
+//                        val image = dataSnapshot.getValue(UserImage::class.java)
+//                        posts.add(image!!)
+//                    }
                     binding.recyclerViewPost.adapter =
                         RecyclerViewPostAdapter(posts, this@FeedFragment)
                 }
@@ -67,7 +68,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     }
 
 
-        override fun onDestroy() {
+    override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }

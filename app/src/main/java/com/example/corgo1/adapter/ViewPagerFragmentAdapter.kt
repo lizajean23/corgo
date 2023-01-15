@@ -3,7 +3,6 @@ package com.example.corgo1.adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.corgo1.Posts
 import com.example.corgo1.appFragments.FeedFragment
 import com.example.corgo1.appFragments.PostFragment
 import com.example.corgo1.appFragments.ProfileFragment
