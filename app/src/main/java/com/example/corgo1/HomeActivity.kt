@@ -1,6 +1,5 @@
 package com.example.corgo1
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
@@ -16,6 +15,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private val navigationItem = NavigationBarView.OnItemSelectedListener {
         when (it.itemId){
+
             R.id.feedFragment ->{
                 viewPager.currentItem = 0
                 return@OnItemSelectedListener true

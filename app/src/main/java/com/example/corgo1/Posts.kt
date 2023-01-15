@@ -1,7 +1,7 @@
 package com.example.corgo1
 
+import android.net.Uri
+
 data class Posts(
-    val imageUrl:String,
-    val username: String,
-    val description: String
+    val userImage :String? = null
 )

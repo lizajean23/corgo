@@ -4,19 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.corgo1.Posts
 import com.example.corgo1.R
 import com.example.corgo1.adapter.RecyclerViewPostAdapter
 import com.example.corgo1.databinding.FragmentFeedBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class FeedFragment:Fragment(R.layout.fragment_feed) {
+class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: RecyclerViewPostAdapter
-
+    private lateinit var posts :ArrayList<Posts>
+    private lateinit var databaseReference: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,48 +41,33 @@ class FeedFragment:Fragment(R.layout.fragment_feed) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(activity)
-        adapter = RecyclerViewPostAdapter(getData())
-        binding.recyclerViewPost.adapter = adapter
+        posts = arrayListOf()
+        databaseReference = FirebaseDatabase.getInstance().getReference("userImages")
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    for (dataSnapshot in snapshot.children) {
+                        val image = dataSnapshot.getValue(Posts::class.java) ?: return
+                        posts.add(image!!)
+                    }
+                    binding.recyclerViewPost.adapter =
+                        RecyclerViewPostAdapter(posts, this@FeedFragment)
+                }
+            }
 
-    }
-    private fun getData(): ArrayList<Posts> {
-        val posts = ArrayList<Posts>()
-        posts.add(
-            Posts(
-                "https://www.google.com/search?q=dog&sxsrf=AJOqlzXb-tiWTCBYfCX3dSjiLJEwXOTMXg:1673627436144&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiqh8WG_MT8AhXNO-wKHZtCCTAQ_AUoAXoECAEQAw&biw=1536&bih=754&dpr=1.25#imgrc=i8__JR5jsTLauM",
-                "cu",
-                "mshia"
-
-
-            )
-        )
-
-        posts.add(
-            Posts(
-                "https://www.google.com/search?q=dog&sxsrf=AJOqlzXb-tiWTCBYfCX3dSjiLJEwXOTMXg:1673627436144&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiqh8WG_MT8AhXNO-wKHZtCCTAQ_AUoAXoECAEQAw&biw=1536&bih=754&dpr=1.25",
-                "me",
-                "woof"
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
-            )
-        )
 
-        posts.add(
-            Posts(
-                "https://www.google.com/search?q=dog&sxsrf=AJOqlzXb-tiWTCBYfCX3dSjiLJEwXOTMXg:1673627436144&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiqh8WG_MT8AhXNO-wKHZtCCTAQ_AUoAXoECAEQAw&biw=1536&bih=754&dpr=1.25#imgrc=btQ8-aZ4x2YyMM",
-                "bestdog",
-                "kaia mze"
-
-
-            )
-        )
-
-        return posts
-
+        binding.recyclerViewPost.setHasFixedSize(true)
 
     }
 
-    override fun onDestroy() {
+
+        override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }

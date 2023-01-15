@@ -1,28 +1,34 @@
 package com.example.corgo1.appFragments
-
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.example.corgo1.Posts
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentPostBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import java.util.UUID
+import com.google.firebase.storage.ktx.storage
+
 
 class PostFragment:Fragment(R.layout.fragment_post) {
 
         private lateinit var imageView: ImageView
         private var _binding: FragmentPostBinding? = null
         private val binding get() = _binding!!
+        private var storageRef = Firebase.storage
+        private lateinit var uri:Uri
+        private val auth = FirebaseAuth.getInstance()
+        private val dataPosts = FirebaseDatabase.getInstance().getReference("Posts")
+        private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
 
         override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,53 +39,59 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             _binding = FragmentPostBinding.inflate(inflater,container,false)
             return binding.root
 
-
-
         }
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             imageView = view.findViewById(R.id.imageView)
+            storageRef = FirebaseStorage.getInstance()
 
             binding.select.setOnClickListener {
-                val intent = Intent (Intent.ACTION_PICK)
-                intent.type = "image/*"
-                galleryActivityResultLauncher.launch(intent)
-
+                    galleryImage.launch("image/*")
             }
 
             binding.upload.setOnClickListener {
-                uploadImageToFirebaseStorage()
+                val description = binding.description.text.toString()
+
+
+                storageRef.getReference("images").child(System.currentTimeMillis().toString())
+                    .putFile(uri)
+                    .addOnSuccessListener {
+                        task ->
+                        task.metadata!!.reference!!.downloadUrl
+                            .addOnSuccessListener{
+                                val userId = FirebaseAuth.getInstance().currentUser!!.uid
+                                val mapImage = mapOf(
+                                    "url" to it.toString()
+                                )
+                                val databaseReference   = FirebaseDatabase.getInstance().getReference("userImages")
+                                databaseReference.child(userId).setValue(mapImage)
+
+                                    .addOnSuccessListener {
+                                        Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
+                                            .show()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(activity, "could not up", Toast.LENGTH_SHORT).show()
+                                    }
+                            }
+                    }
 
             }
+
         }
 
-    var imageUri :Uri? = null
-    private val galleryActivityResultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result ->
-            if (result.resultCode == Activity.RESULT_OK){
-                //image picked
-                val data = result.data
-                val imageUri = data!!.data
-                imageView.setImageURI(imageUri)
-            }else{
-                Toast.makeText(activity, "cancelled", Toast.LENGTH_SHORT).show()
+
+        private val galleryImage = registerForActivityResult(
+            ActivityResultContracts.GetContent(),
+            ActivityResultCallback{
+                imageView.setImageURI(it)
+                if (it != null) {
+                    uri = it
+                }
+
             }
-        }
-
-    private fun uploadImageToFirebaseStorage() {
-        if(imageUri == null) return
-        val filename = UUID.randomUUID().toString()
-        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
-        ref.putFile(imageUri!!)
-            .addOnSuccessListener {
-                Log.d("upload","uploaded:{it.metadata?.path}")
-            }
-
-
-    }
-
+        )
 
     override fun onDestroy() {
             super.onDestroy()
