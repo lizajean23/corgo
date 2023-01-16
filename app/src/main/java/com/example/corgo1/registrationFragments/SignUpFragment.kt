@@ -47,7 +47,7 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                 if(password == repeatPassword && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length >= 6){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
-                            data.child(firebaseAuth.currentUser?.uid!!).child("fullName").setValue(username)
+                            data.child(firebaseAuth.currentUser?.uid!!).child("username").setValue(username)
                             val intent = Intent(requireContext(), HomeActivity::class.java)
                             startActivity(intent)
                         }else{

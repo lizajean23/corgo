@@ -6,7 +6,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginLeft="30sp"
     android:layout_marginRight="30sp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="60dp"
     android:layout_height="wrap_content"
     android:background="@drawable/post">
     <TextView
@@ -58,6 +58,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
         android:text="Description"
+        android:background="@drawable/text_round"
         android:textColor="#131111"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

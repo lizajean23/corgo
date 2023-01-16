@@ -10,8 +10,10 @@
         android:id="@+id/recyclerViewPost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_posts"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="100"
+        tools:listitem="@layout/item_posts" />
 </androidx.constraintlayout.widget.ConstraintLayout>
