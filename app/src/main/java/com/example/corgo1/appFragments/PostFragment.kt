@@ -77,6 +77,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             val description = binding.description.text.toString()
             dataUser.child(auth.currentUser?.uid!!).get().addOnSuccessListener {
                 if (it.exists()) {
+                    val id = dataPosts.push().key
                     val userName = it.child("fullName").value
                     val image = it.child("userImages").value
 
