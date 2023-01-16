@@ -1,24 +1,30 @@
 package com.example.corgo1.adapter
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.corgo1.Posts
 import com.example.corgo1.UserImage
 import com.example.corgo1.R
 import com.example.corgo1.appFragments.FeedFragment
 
 class RecyclerViewPostAdapter(
 
-    private val Post: ArrayList<UserImage>,
-    private val context: FeedFragment
+    private val images: ArrayList<UserImage>,
+    private val context: Context,
     ) :
     RecyclerView.Adapter<RecyclerViewPostAdapter.PostViewHolder>() {
 
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image : ImageView = itemView.findViewById(R.id.postPicture)
+        val username : TextView = itemView.findViewById(R.id.username)
+        val description : TextView = itemView.findViewById(R.id.postDescription)
+
 
     }
 
@@ -28,11 +34,13 @@ class RecyclerViewPostAdapter(
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        Glide.with(context).load(Post[position].userImage).into(holder.image)
+        Glide.with(context).load(images[position].userImages).into(holder.image)
+
+
     }
 
     override fun getItemCount():Int {
-        return  Post.size
+        return  images.size
     }
 
 

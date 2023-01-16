@@ -1,5 +1,6 @@
 package com.example.corgo1.appFragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.corgo1.R
 import com.example.corgo1.UserImage
@@ -22,8 +24,9 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
-    private lateinit var posts :ArrayList<UserImage>
+    private lateinit var images :ArrayList<UserImage>
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,19 +43,20 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerViewPost.layoutManager = LinearLayoutManager(activity)
-        posts = arrayListOf()
+
+        binding.recyclerViewPost.layoutManager = LinearLayoutManager(requireContext())
+        images = arrayListOf()
         databaseReference = FirebaseDatabase.getInstance().getReference("userImages")
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     //es xazebi uberavs arvici rato
-//                    for (dataSnapshot in snapshot.children) {
-//                        val image = dataSnapshot.getValue(UserImage::class.java)
-//                        posts.add(image!!)
-//                    }
-                    binding.recyclerViewPost.adapter =
-                        RecyclerViewPostAdapter(posts, this@FeedFragment)
+                    for (dataSnapshot in snapshot.children) {
+                        val image = dataSnapshot.getValue(UserImage::class.java)
+                        images.add(image!!)
+                    }
+                    binding.recyclerViewPost.adapter =RecyclerViewPostAdapter(images ,requireContext())
+
                 }
             }
 
