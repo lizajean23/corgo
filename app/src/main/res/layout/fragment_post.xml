@@ -71,7 +71,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/text_round"
+            android:background="@drawable/round2"
             android:fontFamily="@font/font"
             android:gravity="center"
             android:hint="my dog is the cutest in the world!"
