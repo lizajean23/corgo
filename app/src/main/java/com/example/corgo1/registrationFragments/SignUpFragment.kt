@@ -38,10 +38,10 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
 
         binding.registration.setOnClickListener{
 
-            val email = binding.registrationEmail.text.toString()
-            val password = binding.passwordSignUp.text.toString()
-            val repeatPassword = binding.repeatPassword.text.toString()
-            val username = binding.usernameSignup.text.toString()
+            val email = binding.registrationEmail.text.toString().trim()
+            val password = binding.passwordSignUp.text.toString().trim()
+            val repeatPassword = binding.repeatPassword.text.toString().trim()
+            val username = binding.usernameSignup.text.toString().trim()
 
             if(email.isNotEmpty() && password.isNotEmpty() && repeatPassword.isNotEmpty() && username.isNotEmpty()){
                 if(password == repeatPassword && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length >= 6){
