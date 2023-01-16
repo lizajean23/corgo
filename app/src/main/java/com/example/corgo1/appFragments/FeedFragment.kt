@@ -55,7 +55,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
                         val image = dataSnapshot.getValue(UserImage::class.java)
                         images.add(image!!)
                     }
-                    binding.recyclerViewPost.adapter =RecyclerViewPostAdapter(images ,requireContext())
+                    binding.recyclerViewPost.adapter =RecyclerViewPostAdapter(images,this@FeedFragment)
 
                 }
             }
