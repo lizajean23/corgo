@@ -15,7 +15,7 @@ import com.example.corgo1.appFragments.FeedFragment
 class RecyclerViewPostAdapter(
 
     private val images: ArrayList<UserImage>,
-    private val context: Context,
+    private val context: FeedFragment,
     ) :
     RecyclerView.Adapter<RecyclerViewPostAdapter.PostViewHolder>() {
 
