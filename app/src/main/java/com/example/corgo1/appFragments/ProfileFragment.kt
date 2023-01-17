@@ -64,66 +64,66 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                 startActivity(intent)
 
             }
-
-            binding.profilePic.setOnClickListener{
-                galleryImage.launch("image/*")
-            }
-
-            binding.uploadPfp.setOnClickListener {
-            storageRef.getReference("images").child(System.currentTimeMillis().toString())
-                .putFile(uri)
-                .addOnSuccessListener {
-                        task ->
-                    task.metadata!!.reference!!.downloadUrl
-                        .addOnSuccessListener{
-                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
-                            val mapImage = mapOf(
-                                "url" to it.toString()
-                            )
-
-                            dataPosts.child(id.toString()).child("userImages").setValue(pfp)
-
-                            val databaseReference  = FirebaseDatabase.getInstance().getReference("userImages")
-                            databaseReference.child(userId).setValue(mapImage)
-
-                                .addOnSuccessListener {
-                                    Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
-                                        .show()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(activity, "could not up", Toast.LENGTH_SHORT).show()
-                                }
-                        }
-                }
-            }
-
-            dataUser.child(auth.currentUser?.uid!!).addValueEventListener(object:
-                ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (!snapshot.hasChild("username")) {
-
-                    }
-                    val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
-                     binding.username.text = userInfo.username
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                }
-
-            })
-
-
+//
+//            binding.profilePic.setOnClickListener{
+//                galleryImage.launch("image/*")
+//            }
+//
+//            binding.uploadPfp.setOnClickListener {
+//            storageRef.getReference("images").child(System.currentTimeMillis().toString())
+//                .putFile(uri)
+//                .addOnSuccessListener {
+//                        task ->
+//                    task.metadata!!.reference!!.downloadUrl
+//                        .addOnSuccessListener{
+//                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
+//                            val mapImage = mapOf(
+//                                "url" to it.toString()
+//                            )
+//
+//                            dataPosts.child(id.toString()).child("userImages").setValue(pfp)
+//
+//                            val databaseReference  = FirebaseDatabase.getInstance().getReference("userImages")
+//                            databaseReference.child(userId).setValue(mapImage)
+//
+//                                .addOnSuccessListener {
+//                                    Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
+//                                        .show()
+//                                }
+//                                .addOnFailureListener {
+//                                    Toast.makeText(activity, "could not up", Toast.LENGTH_SHORT).show()
+//                                }
+//                        }
+//                }
+//            }
+//
+//            dataUser.child(auth.currentUser?.uid!!).addValueEventListener(object:
+//                ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    if (!snapshot.hasChild("username")) {
+//
+//                    }
+//                    val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
+//                     binding.username.text = userInfo.username
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                }
+//
+//            })
+//
+//
+//        }
+//        private val galleryImage = registerForActivityResult(
+//        ActivityResultContracts.GetContent(),
+//        ActivityResultCallback{
+//            pfp.setImageURI(it)
+//            if (it != null) {
+//                uri = it
+//            }
+//
         }
-        private val galleryImage = registerForActivityResult(
-        ActivityResultContracts.GetContent(),
-        ActivityResultCallback{
-            pfp.setImageURI(it)
-            if (it != null) {
-                uri = it
-            }
-
-        }
-    )
+//    )
 
         override fun onDestroy() {
             super.onDestroy()
