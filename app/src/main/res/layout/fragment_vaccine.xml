@@ -6,14 +6,77 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient">
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:background="#FF9800"
 
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/vaccinename"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:fontFamily="@font/font"
+            android:background="@drawable/text_round"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="enter vaccine name"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/selectdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="select vaccine date"
+            android:fontFamily="@font/font"
+            android:backgroundTint="#95E8DDD3"/>
+
+        <TextView
+            android:id="@+id/vaccinedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3">
+
+        <TextView
+            android:id="@+id/vaccinetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/datetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
