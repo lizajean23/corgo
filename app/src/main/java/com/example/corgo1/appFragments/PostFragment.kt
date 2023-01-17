@@ -37,7 +37,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
     private var imageUrl : String? = null
     private val auth = FirebaseAuth.getInstance()
     private val dataPosts = FirebaseDatabase.getInstance().getReference("Posts")
-//    private val dataImages = FirebaseDatabase.getInstance().getReference("userImages")
+    private val dataImages = FirebaseDatabase.getInstance().getReference("userImages")
     private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
 
     override fun onCreateView(
@@ -123,7 +123,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
                 val id = dataPosts.push().key
                 dataPosts.child(id.toString()).child("username").setValue(username)
                 dataPosts.child(id.toString()).child("description").setValue(description)
-//                dataPosts.child(id.toString()).child("image").setValue(imageView)
+                dataPosts.child(id.toString()).child("userImages").setValue(imageView)
 
 
                     .addOnSuccessListener {
