@@ -48,15 +48,15 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-                var list = ArrayList<Posts>()
-                for(data in dataSnapshot.children){
-                    var post  = data.getValue(Posts::class.java)
-                    list.add(post as Posts )
-                }
-                if (list.size>0){
-                    val adapter = RecyclerViewPostAdapter(list)
-                    binding.recyclerViewPost.adapter= adapter
-                }
+//                var list = ArrayList<Posts>()
+//                for(data in dataSnapshot.children){
+//                    var post  = data.getValue(Posts::class.java)
+//                    list.add(post as Posts )
+//                }
+//                if (list.size>0){
+//                    val adapter = RecyclerViewPostAdapter(list)
+//                    binding.recyclerViewPost.adapter= adapter
+//                }
 
 
 

@@ -1,6 +1,7 @@
 package com.example.corgo1
-data class Posts(
-    val username : String = "",
-    val description : String = ""
+class Posts {
+    var username:String? = null
+    var description:String? = null
+    var image:String? = null
 
-)
+}
