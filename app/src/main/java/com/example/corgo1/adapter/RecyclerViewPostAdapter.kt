@@ -1,4 +1,5 @@
 package com.example.corgo1.adapter
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import com.example.corgo1.appFragments.FeedFragment
 
 class RecyclerViewPostAdapter(
 
-//    private val images: ArrayList<UserImage>,
+    private val context: Context,
     private val posts: ArrayList<Posts>,
 
     ) :
@@ -24,6 +25,8 @@ class RecyclerViewPostAdapter(
 //        val image : ImageView = itemView.findViewById(R.id.postPicture)
         val username : TextView = itemView.findViewById(R.id.username)
         val description : TextView = itemView.findViewById(R.id.postDescription)
+        val image :ImageView = itemView.findViewById(R.id.postPicture)
+
 
 
 
@@ -36,16 +39,17 @@ class RecyclerViewPostAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_posts,parent,false)
+        val itemView : View = LayoutInflater.from(parent.context).inflate(R.layout.item_posts,parent,false)
         return PostViewHolder(itemView)
 
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val currentPost = posts[position]
-//        Glide.with(context).load(images[position].userImages).into(holder.image)
-        holder.username.text =currentPost.username
-        holder.description.text = currentPost.description
+        Glide.with(context).load(posts[position].image).into(holder.image)
+        holder.username.text = posts[position].username
+        holder.description.text = posts[position].description
+
 
 
 

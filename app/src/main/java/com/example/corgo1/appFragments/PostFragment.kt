@@ -98,7 +98,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
         storageReference.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
             val uriTask = taskSnapshot.storage.downloadUrl
             while(!uriTask.isComplete);
-               val urlImage = uriTask.result
+            val urlImage = uriTask.result
             imageUrl= urlImage.toString()
             uploadData()
             dialog.dismiss()

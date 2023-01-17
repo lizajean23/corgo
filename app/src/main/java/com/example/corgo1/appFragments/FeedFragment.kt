@@ -1,5 +1,6 @@
 package com.example.corgo1.appFragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.corgo1.Posts
@@ -24,8 +26,12 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var images :ArrayList<UserImage>
-    private lateinit var databaseReference: DatabaseReference
+    private lateinit var dataList :ArrayList<Posts>
+    private lateinit var adapter: RecyclerViewPostAdapter
+
+    var databaseReference: DatabaseReference? = null
+    var eventListener:ValueEventListener? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,10 +49,43 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(requireContext())
-//        images = arrayListOf()
+
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(R.layout.progress_layout)
+        val dialog = builder.create()
+        dialog.show()
+
+        dataList = ArrayList()
+        adapter = RecyclerViewPostAdapter(requireContext(),dataList)
+        binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
-        databaseReference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
+        dialog.show()
+
+        eventListener = databaseReference!!.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                dataList.clear()
+                for(itemSnapshot in snapshot.children){
+                    val dataClass =itemSnapshot.getValue(Posts::class.java)
+                    if (dataClass != null){
+                        dataList.add(dataClass)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+                dialog.dismiss()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                dialog.dismiss()
+            }
+
+        })
+
+//        val gridLayoutManager = GridLayoutManager(requireContext(),1)
+//        images = arrayListOf()
+//        databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
+//        databaseReference.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
 //                var list = ArrayList<Posts>()
 //                for(data in dataSnapshot.children){
@@ -73,13 +112,13 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 //                    }
 //                    binding.recyclerViewPost.adapter =RecyclerViewPostAdapter(posts)
 //                }
-            }
+//            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
-
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//
     }
 
 
