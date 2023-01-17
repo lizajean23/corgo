@@ -48,7 +48,8 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerViewPost.layoutManager = LinearLayoutManager(activity)
+
+        binding.recyclerViewPost.layoutManager = LinearLayoutManager(requireContext())
 
 
 
@@ -61,13 +62,14 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         eventListener = databaseReference!!.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 dataList.clear()
-                for(itemSnapshot in snapshot.children){
-                    val dataClass = itemSnapshot.getValue(Posts::class.java)
-                    if (dataClass != null){
-                        dataList.add(dataClass)
-                    }
-                }
-                adapter.notifyDataSetChanged()
+//                for(itemSnapshot in snapshot.children){
+//                    val dataClass = itemSnapshot.getValue(Posts::class.java)
+//                    if (dataClass != null){
+//                        dataList.add(dataClass)
+//                    }
+//                }
+
+
 
             }
 

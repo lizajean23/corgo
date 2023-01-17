@@ -122,8 +122,13 @@ class PostFragment:Fragment(R.layout.fragment_post) {
                 val username = it.child("username").value
                 val id = dataPosts.push().key
                 dataPosts.child(id.toString()).child("username").setValue(username)
+//                val dataClass = Posts(description,imageUrl)
+//                FirebaseDatabase.getInstance().getReference("Posts").child(auth.currentUser?.uid!!).setValue(dataClass).addOnCompleteListener {
+//                    Toast.makeText(requireContext(), "iqneb qna", Toast.LENGTH_SHORT).show()
+//                }
                 dataPosts.child(id.toString()).child("description").setValue(description)
                 dataPosts.child(id.toString()).child("image").setValue(imageUrl)
+
 
 
                     .addOnSuccessListener {
@@ -132,13 +137,13 @@ class PostFragment:Fragment(R.layout.fragment_post) {
                 val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
 
-                            val databaseReference  = FirebaseDatabase.getInstance().getReference("Posts")
-                            databaseReference.child(userId).setValue(imageUrl)
+//                            val databaseReference  = FirebaseDatabase.getInstance().getReference("Posts")
+//                            databaseReference.child(userId).setValue(username)
 
-                                .addOnSuccessListener {
-                                    Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
-                                        .show()
-                                }
+//                                .addOnSuccessListener {
+//                                    Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
+//                                        .show()
+//                                }
 
             }
         }
