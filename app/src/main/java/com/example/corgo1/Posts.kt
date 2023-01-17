@@ -4,4 +4,6 @@ class Posts {
     var description:String? = null
     var image:String? = null
 
+    
+
 }

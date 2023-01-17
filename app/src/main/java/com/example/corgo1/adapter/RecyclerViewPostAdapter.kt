@@ -45,7 +45,7 @@ class RecyclerViewPostAdapter(
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val currentPost = posts[position]
+
         Glide.with(context).load(posts[position].image).into(holder.image)
         holder.username.text = posts[position].username
         holder.description.text = posts[position].description
