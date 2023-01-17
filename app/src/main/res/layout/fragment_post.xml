@@ -82,7 +82,7 @@
             app:layout_constraintStart_toStartOf="@+id/image"
             app:layout_constraintTop_toTopOf="@+id/image" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,18 +91,20 @@
             android:backgroundTint="#392302"
             android:drawableRight="@drawable/upload_drawable"
             android:fontFamily="@font/font"
+            app:cornerRadius="30dp"
             android:text="select a picture"
             android:textColor="#FF9800"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="@+id/description"
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            app:cornerRadius="30dp"
             android:backgroundTint="#392302"
             android:drawableRight="@drawable/publish_drawable"
             android:fontFamily="@font/font"

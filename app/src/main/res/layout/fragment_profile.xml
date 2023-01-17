@@ -67,12 +67,13 @@
 
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/uploadPfp"
             android:layout_width="163dp"
             android:layout_height="41dp"
             android:backgroundTint="#F3AA5D"
             android:fontFamily="@font/font"
+            app:cornerRadius="30dp"
             android:text="Upload pfp"
             android:textColor="#644011"
             android:textSize="20sp"
@@ -83,12 +84,13 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="40dp"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#F3AA5D"
             android:fontFamily="@font/font"
+            app:cornerRadius="30dp"
             android:text="change password"
             android:textColor="#644011"
             android:textSize="20sp"
