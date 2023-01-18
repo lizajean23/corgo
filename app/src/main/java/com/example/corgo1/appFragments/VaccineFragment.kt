@@ -34,6 +34,7 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,12 +43,19 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
         val vaccinePref = preferences.getString("vaccine", "")
         val datePref = preferences.getString("date", "")
         val builder = AlertDialog.Builder(requireContext())
+        val myCalendar =  Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateLabel(myCalendar)
+        }
 
         binding.vaccinetext.text = vaccinePref
         binding.datetext.text = datePref
 
-
         binding.save.setOnClickListener {
+
 
             val vaccineName = binding.vaccinename.text.toString()
             val vaccineDate = binding.vaccinedate.text.toString()
@@ -75,21 +83,6 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
 
         }
 
-        val myCalendar =  Calendar.getInstance()
-        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, month)
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            updateLabel(myCalendar)
-        }
-
-        binding.selectdate.setOnClickListener{
-            DatePickerDialog(requireContext(), datePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
-
-        }
-
-
         binding.clear.setOnClickListener {
 
             builder.setTitle("Clearing vaccine history")
@@ -104,15 +97,22 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
                 }
                 .show()
         }
+
+
+        binding.selectdate.setOnClickListener{
+            DatePickerDialog(requireContext(), datePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+
+        }
+
+
     }
 
     private fun updateLabel(myCalendar: Calendar) {
         val myFormat =  "dd-MM-yyyy"
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
         binding.vaccinedate.text = sdf.format(myCalendar.time)
-
     }
-
 
 
     override fun onDestroy() {
