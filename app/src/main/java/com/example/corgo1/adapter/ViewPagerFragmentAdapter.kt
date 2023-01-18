@@ -8,21 +8,25 @@ import com.example.corgo1.appFragments.PostFragment
 import com.example.corgo1.appFragments.ProfileFragment
 import com.example.corgo1.appFragments.VaccineFragment
 
-class ViewPagerFragmentAdapter(activity:AppCompatActivity): FragmentStateAdapter(activity){
+class ViewPagerFragmentAdapter(activity:AppCompatActivity): FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return 4
     }
 
     override fun createFragment(position: Int): Fragment {
-        return when(position){
-            0->FeedFragment()
-            1->PostFragment()
-            2->VaccineFragment()
-            3 -> ProfileFragment()
-            else ->FeedFragment()
+        if (position == 0) {
+            return FeedFragment()
+        }
+        else if (position == 1) {
+            return PostFragment()
+        }
+        else if (position == 2) {
+            return VaccineFragment()
+        } else {
+            return ProfileFragment()
+
         }
     }
-
 
 }
 
