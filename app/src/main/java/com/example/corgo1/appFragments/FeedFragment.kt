@@ -1,6 +1,7 @@
 package com.example.corgo1.appFragments
 
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -52,9 +53,16 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         adapter = RecyclerViewPostAdapter(requireContext(),dataList)
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(R.layout.progress_layout)
+        val dialog = builder.create()
+        dialog.show()
         databaseReference.addValueEventListener(object : ValueEventListener{
 
+
             override fun onDataChange(snapshot: DataSnapshot) {
+
                 dataList.clear()
                 if (snapshot.exists()){
                     for(dataSnapShot in snapshot.children){
@@ -62,6 +70,8 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
                         dataList.add(dataClass!!)
                     }
                     binding.recyclerViewPost.adapter = RecyclerViewPostAdapter(requireContext(),dataList)
+                    dialog.dismiss()
+
                 }
             }
 
