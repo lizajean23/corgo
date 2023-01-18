@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:indeterminateTint="@color/black">
+        android:indeterminateTint="@color/primary_corgo">
 
     </ProgressBar>
     
@@ -21,7 +21,7 @@
         android:layout_weight="4"
         android:textSize="18sp"
         android:text="Uploading..."
-        android:textColor="@color/black"
+        android:textColor="@color/primary_corgo"
         android:gravity="start|center_vertical">
 
     </TextView>

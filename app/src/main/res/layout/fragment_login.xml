@@ -24,7 +24,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:fontFamily="@font/font"
         android:text="CORGO"
         android:textColor="#784B08"
@@ -90,8 +90,8 @@
         android:fontFamily="@font/font"
         app:cornerRadius="30dp"
         android:text="log in"
-        android:textSize="20dp"
-        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textColor="#F3935C0A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgotPass" />
@@ -104,23 +104,25 @@
         android:fontFamily="@font/font"
         android:layout_marginTop="10sp"
         android:layout_marginRight="50dp"
+        android:textColor="#F3935C0A"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup"
+    <TextView
+        android:id="@+id/signuptext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF9800"
+        android:drawableLeft="@drawable/no_acc_drawable"
         android:fontFamily="@font/font"
-        app:cornerRadius="30dp"
-        android:text="sign up"
-        android:textSize="20dp"
-        android:textColor="@color/white"
+        android:gravity="center"
+        android:text=" I DON'T HAVE AN ACCOUNT"
+        android:textColor="#F3935C0A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/LogIn"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

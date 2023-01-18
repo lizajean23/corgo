@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/corgi" />
+        app:srcCompat="@drawable/corgi"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -52,7 +52,7 @@
         android:fontFamily="@font/font"
         app:cornerRadius="30dp"
         android:text="Reset Password"
-        android:textColor="@color/white"
+        android:textColor="#F3935C0A"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/font"
+        android:drawableLeft="@drawable/arrow_back"
         android:text="BACK TO SIGN IN"
         android:textColor="#F3935C0A"
         android:textSize="18sp"

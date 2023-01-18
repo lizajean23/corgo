@@ -63,12 +63,12 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
 
         }
 
-        binding.signup.setOnClickListener {
-            val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
-            controller.navigate(action)
-        }
         binding.forgotPass.setOnClickListener{
             val action = LogInFragmentDirections.actionLogInFragmentToForgotPasswordFragment()
+            controller.navigate(action)
+        }
+        binding.signuptext.setOnClickListener {
+            val action = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
             controller.navigate(action)
         }
 
