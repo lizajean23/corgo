@@ -63,10 +63,8 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
                     for(dataSnapShot in snapshot.children){
                         val dataClass = dataSnapShot.getValue(Posts::class.java)
                         dataList.add(dataClass!!)
-
                     }
                     binding.recyclerViewPost.adapter = RecyclerViewPostAdapter(requireContext(),dataList)
-
                 }
             }
 

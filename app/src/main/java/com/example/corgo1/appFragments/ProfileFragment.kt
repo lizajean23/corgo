@@ -11,10 +11,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.corgo1.MainActivity
 import com.example.corgo1.R
+import com.example.corgo1.components.ChangePassDialog
 import com.example.corgo1.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -79,6 +81,11 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
 
             }
+
+                  binding.changepass.setOnClickListener {
+                      val showDialog = ChangePassDialog()
+                      showDialog.show((activity as AppCompatActivity).supportFragmentManager, "showDialog")
+                  }
 //
 //            binding.profilePic.setOnClickListener{
 //                galleryImage.launch("image/*")

@@ -1,15 +1,19 @@
 package com.example.corgo1.appFragments
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.Fragment
+import com.example.corgo1.MainActivity
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentVaccineBinding
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,9 +41,11 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
         val editor = preferences.edit()
         val vaccinePref = preferences.getString("vaccine", "")
         val datePref = preferences.getString("date", "")
+        val builder = AlertDialog.Builder(requireContext())
 
         binding.vaccinetext.text = vaccinePref
         binding.datetext.text = datePref
+
 
         binding.save.setOnClickListener {
 
@@ -85,8 +91,18 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
 
 
         binding.clear.setOnClickListener {
-            binding.vaccinetext.text= ""
-            binding.datetext.text = ""
+
+            builder.setTitle("Clearing vaccine history")
+                .setMessage("Are you sure you want to delete all vaccine records?")
+                .setCancelable(true)
+                .setPositiveButton("Yes"){ dialogInterface, it ->
+                    binding.vaccinetext.text= ""
+                    binding.datetext.text = ""
+                }
+                .setNegativeButton("Cancel"){ dialogInterface, it ->
+                    dialogInterface.cancel()
+                }
+                .show()
         }
     }
 
