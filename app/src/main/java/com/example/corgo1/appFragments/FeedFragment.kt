@@ -55,7 +55,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
         val builder = AlertDialog.Builder(requireContext())
         builder.setCancelable(false)
-        builder.setView(R.layout.progress_layout)
+        builder.setView(R.layout.loading_layout)
         val dialog = builder.create()
         dialog.show()
         databaseReference.addValueEventListener(object : ValueEventListener{
