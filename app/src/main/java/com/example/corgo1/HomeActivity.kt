@@ -44,22 +44,21 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        val actionBar: ActionBar? = supportActionBar
-        actionBar?.hide()
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_home)
+    val actionBar: ActionBar? = supportActionBar
+    actionBar?.hide()
 
 
-        viewPager = findViewById(R.id.viewPager)
-        tabLayout = findViewById(R.id.TabLayout)
-        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
-        viewPager.adapter = viewPagerFragmentAdapter
+    viewPager = findViewById(R.id.viewPager)
+    tabLayout = findViewById(R.id.TabLayout)
+    viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
+    viewPager.adapter = viewPagerFragmentAdapter
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+    TabLayoutMediator(tabLayout, viewPager) { tab, position ->
         tab.text = tabTitles[position]
 
-        }.attach()
-
+    }.attach()
 
 
 //        viewPager = findViewById(R.id.viewPager)
@@ -69,31 +68,16 @@ class HomeActivity : AppCompatActivity() {
 //        bottomNavigationView.setOnItemSelectedListener(navigationItem)
 
 
+}
 
+    override fun onBackPressed() {
+        if (viewPager.currentItem == 0){
+            super.onBackPressed()
 
+        }else{
+            viewPager.currentItem = viewPager.currentItem - 1
+        }
 
-//        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                when (position) {
-//                    0 -> bottomNavigationView.menu.findItem(R.id.feedFragment).isChecked = true
-//                    1 -> bottomNavigationView.menu.findItem(R.id.postFragment).isChecked = true
-//                    2 -> bottomNavigationView.menu.findItem(R.id.vaccineFragment).isChecked = true
-//                    3 -> bottomNavigationView.menu.findItem(R.id.profileFragment).isChecked = true
-//                }
-//            }
-//        })
-//
-//    }
-//    override fun onBackPressed() {
-//        if (viewPager.currentItem == 0){
-//            super.onBackPressed()
-//
-//        }else{
-//            viewPager.currentItem = viewPager.currentItem - 1
-//        }
-//
     }
 
 }
