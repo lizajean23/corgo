@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font"
                 android:gravity="center"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:drawableLeft="@drawable/enter_name"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -87,6 +87,7 @@
             android:layout_weight="7"
             android:fontFamily="@font/font"
             android:text="TextView"
+            android:inputType="textMultiLine"
             android:textColor="#F3935C0A"
             android:textSize="16sp" />
 
@@ -122,8 +123,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:gravity="center"
         android:fontFamily="@font/font"
-        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
         android:text="Keep track of your pet's vaccines here!"
         android:textColor="#F3935C0A"
         android:textSize="20sp"

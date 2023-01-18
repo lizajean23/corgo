@@ -27,11 +27,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/corgi"
+        android:background="@drawable/corgi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
-
 
 
     <ImageView
@@ -63,5 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postPicture" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

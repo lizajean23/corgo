@@ -55,10 +55,10 @@
                 />
             <ImageView
                 android:id="@+id/profilePic"
-                android:layout_width="178dp"
-                android:layout_height="189dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:src="@drawable/corgi"
+                android:background="@drawable/corgi"
                 android:scaleType="centerCrop"
                 tools:srcCompat="@tools:sample/avatars"
                 app:layout_constraintEnd_toEndOf="parent"

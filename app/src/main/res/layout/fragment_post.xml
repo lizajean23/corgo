@@ -76,6 +76,7 @@
             android:layout_marginTop="30dp"
             android:maxWidth="190dp"
             android:maxHeight="190dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/upload_drawable"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
