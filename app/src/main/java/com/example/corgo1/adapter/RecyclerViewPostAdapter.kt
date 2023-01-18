@@ -20,7 +20,6 @@ class RecyclerViewPostAdapter(
 
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val image : ImageView = itemView.findViewById(R.id.postPicture)
         val username : TextView = itemView.findViewById(R.id.username)
         val description : TextView = itemView.findViewById(R.id.postDescription)
         val image :ImageView = itemView.findViewById(R.id.postPicture)
@@ -57,7 +56,6 @@ class RecyclerViewPostAdapter(
     }
 
     override fun getItemCount():Int {
-//        return  images.size,
         return posts.size
     }
 
