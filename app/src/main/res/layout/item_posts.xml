@@ -7,15 +7,19 @@
     android:layout_marginLeft="30sp"
     android:layout_marginRight="30sp"
     android:layout_marginBottom="60dp"
-    android:layout_height="430dp">
+    android:layout_height="430dp"
+    android:background="@drawable/round2">
     <TextView
         android:id="@+id/username"
+        android:fontFamily="@font/font"
         android:layout_width="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:textSize="20sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="USERNAME"
         android:background="@drawable/round"
-        android:textColor="#FF5722"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/Pfp"
         app:layout_constraintStart_toEndOf="@+id/Pfp"
         app:layout_constraintTop_toTopOf="@+id/Pfp" />
@@ -56,7 +60,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="20dp"
         android:text="Description"
-        android:background="@drawable/text_round"
         android:textColor="#131111"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
