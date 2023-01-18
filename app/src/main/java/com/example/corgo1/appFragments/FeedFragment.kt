@@ -29,7 +29,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     private lateinit var dataList :ArrayList<Posts>
     private lateinit var adapter: RecyclerViewPostAdapter
 
-    var databaseReference: DatabaseReference? = null
+    private lateinit var databaseReference: DatabaseReference
     var eventListener:ValueEventListener? = null
 
 
@@ -53,15 +53,33 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
 
 
-        dataList = ArrayList()
+        dataList = arrayListOf()
         adapter = RecyclerViewPostAdapter(requireContext(),dataList)
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
-
-
-        eventListener = databaseReference!!.addValueEventListener(object :ValueEventListener{
+        databaseReference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                dataList.clear()
+                if (snapshot.exists()){
+                    for(dataSnapShot in snapshot.children){
+                        val dataClass = dataSnapShot.getValue(Posts::class.java)
+                        dataList.add(dataClass!!)
+
+                    }
+                    binding.recyclerViewPost.adapter = RecyclerViewPostAdapter(requireContext(),dataList)
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "cool", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
+
+//        eventListener = databaseReference!!.addValueEventListener(object :ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                dataList.clear()
 //                for(itemSnapshot in snapshot.children){
 //                    val dataClass = itemSnapshot.getValue(Posts::class.java)
 //                    if (dataClass != null){
@@ -71,13 +89,13 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
 
 
-            }
+//            }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//
+//        })
 
 //        val gridLayoutManager = GridLayoutManager(requireContext(),1)
 //        images = arrayListOf()

@@ -47,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
         actionBar?.hide()
 
 
+
         viewPager = findViewById(R.id.viewPager)
         tabLayout = findViewById(R.id.TabLayout)
         viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)

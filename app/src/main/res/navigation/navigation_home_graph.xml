@@ -27,6 +27,7 @@
         android:label="profileFragment"
         tools:layout="@layout/fragment_profile">
 
+
     </fragment>
 
     <fragment
@@ -36,6 +37,7 @@
         tools:layout="@layout/fragment_vaccine">
 
     </fragment>
+
 
 
 
