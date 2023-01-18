@@ -97,20 +97,20 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 //                }
 //            }
 //
-//            dataUser.child(auth.currentUser?.uid!!).addValueEventListener(object:
-//                ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//                    if (!snapshot.hasChild("username")) {
-//
-//                    }
-//                    val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
-//                     binding.username.text = userInfo.username
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {
-//                }
-//
-//            })
+            dataUser.child(auth.currentUser?.uid!!).addValueEventListener(object:
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (!snapshot.hasChild("username")) {
+
+                    }
+                    val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
+                     binding.username.text = userInfo.username
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+            })
 //
 //
 //        }
