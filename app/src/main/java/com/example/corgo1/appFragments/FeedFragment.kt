@@ -58,6 +58,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
         databaseReference.addValueEventListener(object : ValueEventListener{
+
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     for(dataSnapShot in snapshot.children){
