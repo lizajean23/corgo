@@ -27,6 +27,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
     private val auth = FirebaseAuth.getInstance()
     private val dataPosts = FirebaseDatabase.getInstance().getReference("Posts")
     private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
+    private var selected : Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,9 +61,17 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             val photoPicker = Intent(Intent.ACTION_PICK)
             photoPicker.type = "image/*"
             activityResultLauncher.launch(photoPicker)
+            selected = true
+
+
         }
         binding.upload.setOnClickListener{
-            saveData()
+            if (selected){
+                saveData()
+            }else{
+                Toast.makeText(requireContext(), "Select picture to upload your post", Toast.LENGTH_SHORT).show()
+            }
+            
 
         }
 

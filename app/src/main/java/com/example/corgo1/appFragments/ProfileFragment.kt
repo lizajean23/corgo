@@ -38,6 +38,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
         private var uri:Uri? = null
         private var imageUrl : String? = null
+        private var selected : Boolean = false
         private lateinit var builder: AlertDialog.Builder
 
 
@@ -96,9 +97,14 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                 val photoPicker = Intent(Intent.ACTION_PICK)
                 photoPicker.type = "image/*"
                 activityResultLauncher.launch(photoPicker)
+                selected = true
             }
             binding.uploadPfp.setOnClickListener{
-                saveData()
+                if (selected){
+                    saveData()
+                }else{
+                    Toast.makeText(requireContext(), "Select picture to upload your post", Toast.LENGTH_SHORT).show()
+                }
 
             }
 

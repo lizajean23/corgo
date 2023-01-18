@@ -8,12 +8,6 @@ data class Posts (
     var image:String? = null,
     val pfp:String? = null
 
-//    constructor(description:String?,image:String?){
-//        this.description = description
-//        this.image = image
-//
-//    }
-
 
 
 

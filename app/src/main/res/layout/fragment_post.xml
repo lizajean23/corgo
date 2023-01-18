@@ -12,7 +12,7 @@
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/font"
         android:gravity="center"
-        android:text="Show off your cute pet or ask anything!"
+        android:text="Show off your cute pet!"
         android:textColor="#F3935C0A"
         android:textSize="19sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"

@@ -18,29 +18,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var tabLayout : TabLayout
     private val tabTitles = arrayListOf("Feed", "Post", "Vaccine", "Profile")
 
-//    private val navigationItem = NavigationBarView.OnItemSelectedListener {
-//        when (it.itemId){
-//
-//            R.id.feedFragment ->{
-//                viewPager.currentItem = 0
-//                return@OnItemSelectedListener true
-//            }
-//            R.id.postFragment ->{
-//                viewPager.currentItem = 1
-//                return@OnItemSelectedListener true
-//            }
-//            R.id.vaccineFragment ->{
-//                viewPager.currentItem = 2
-//                return@OnItemSelectedListener true
-//            }
-//            R.id.profileFragment ->{
-//                viewPager.currentItem = 3
-//                return@OnItemSelectedListener true
-//            }
-//        }
-//        false
-//
-//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -61,16 +39,10 @@ class HomeActivity : AppCompatActivity() {
     }.attach()
 
 
-
-
-
 }
 
     override fun onBackPressed() {
-
             viewPager.currentItem = viewPager.currentItem - 1
-
-
     }
 
 }
