@@ -85,7 +85,7 @@
             android:layout_marginTop="40dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/change"
+            android:id="@+id/changepass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#F3AA5D"

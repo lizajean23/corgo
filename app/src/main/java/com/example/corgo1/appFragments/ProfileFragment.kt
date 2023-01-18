@@ -1,6 +1,7 @@
 package com.example.corgo1.appFragments
 
 import android.app.AlertDialog
+import android.app.ProgressDialog.show
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,10 +12,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.corgo1.MainActivity
 import com.example.corgo1.R
+import com.example.corgo1.components.ChangePassDialog
 import com.example.corgo1.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -38,6 +41,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         private lateinit var uri:Uri
         private var storageRef = Firebase.storage
         private lateinit var builder: AlertDialog.Builder
+        private var firebaseAuth =  FirebaseAuth.getInstance()
 
 
         override fun onCreateView(
@@ -79,6 +83,16 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
 
             }
+
+            binding.changepass.setOnClickListener {
+                val showDialog = ChangePassDialog()
+                showDialog.show((activity as AppCompatActivity).supportFragmentManager, "showDialog")
+            }
+
+
+
+
+
 //
 //            binding.profilePic.setOnClickListener{
 //                galleryImage.launch("image/*")
