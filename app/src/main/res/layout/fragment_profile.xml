@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font"
-        android:gravity="center"
-        android:text="PROFILE"
-        android:textSize="30sp"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="3dp"
+        android:src="@drawable/ic_baseline_profile"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
 
 
     <LinearLayout
@@ -112,17 +112,6 @@
             tools:layout_editor_absoluteX="291dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:id="@+id/corgi"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="25dp"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/corgi" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
