@@ -16,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var viewPagerFragmentAdapter: ViewPagerFragmentAdapter
     private lateinit var tabLayout : TabLayout
-    private val tabTitles = arrayListOf("Feed", "Post", "Vaccines", "Profile")
+    private val tabTitles = arrayListOf("Feed", "Post", "Vaccine", "Profile")
 
 //    private val navigationItem = NavigationBarView.OnItemSelectedListener {
 //        when (it.itemId){
@@ -61,22 +61,15 @@ class HomeActivity : AppCompatActivity() {
     }.attach()
 
 
-//        viewPager = findViewById(R.id.viewPager)
-//        bottomNavigationView = findViewById(R.id.bottomNavView)
-//        viewPagerFragmentAdapter = ViewPagerFragmentAdapter(this)
-//        viewPager.adapter = viewPagerFragmentAdapter
-//        bottomNavigationView.setOnItemSelectedListener(navigationItem)
+
 
 
 }
 
     override fun onBackPressed() {
-        if (viewPager.currentItem == 0){
-            super.onBackPressed()
 
-        }else{
             viewPager.currentItem = viewPager.currentItem - 1
-        }
+
 
     }
 

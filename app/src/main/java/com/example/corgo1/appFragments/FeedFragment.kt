@@ -26,7 +26,6 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     private lateinit var adapter: RecyclerViewPostAdapter
 
     private lateinit var databaseReference: DatabaseReference
-    var eventListener:ValueEventListener? = null
 
 
     override fun onCreateView(
@@ -70,67 +69,6 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
                 Toast.makeText(requireContext(), "cool", Toast.LENGTH_SHORT).show()
             }
         })
-
-
-
-//        eventListener = databaseReference!!.addValueEventListener(object :ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                dataList.clear()
-//                for(itemSnapshot in snapshot.children){
-//                    val dataClass = itemSnapshot.getValue(Posts::class.java)
-//                    if (dataClass != null){
-//                        dataList.add(dataClass)
-//                    }
-//                }
-
-
-
-//            }
-
-//            override fun onCancelled(error: DatabaseError) {
-//
-//            }
-//
-//        })
-
-//        val gridLayoutManager = GridLayoutManager(requireContext(),1)
-//        images = arrayListOf()
-//        databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
-//        databaseReference.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-
-//                var list = ArrayList<Posts>()
-//                for(data in dataSnapshot.children){
-//                    var post  = data.getValue(Posts::class.java)
-//                    list.add(post as Posts )
-//                }
-//                if (list.size>0){
-//                    val adapter = RecyclerViewPostAdapter(list)
-//                    binding.recyclerViewPost.adapter= adapter
-//                }
-
-
-
-                    //es xazebi uberavs arvici rato
-//                    for (dataSnapshot in snapshot.children) {
-//                        val image = dataSnapshot.getValue(UserImage::class.java)
-//                        images.add(image!!)
-//                    }
-//                if (dataSnapshot.exists()) {
-//
-//                    for (dataSnapshot in dataSnapshot.children) {
-//                        val post = dataSnapshot.getValue(Posts::class.java)
-//                        posts.add(post!!)
-//                    }
-//                    binding.recyclerViewPost.adapter =RecyclerViewPostAdapter(posts)
-//                }
-//            }
-
-//            override fun onCancelled(error: DatabaseError) {
-//                Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//
     }
 
 

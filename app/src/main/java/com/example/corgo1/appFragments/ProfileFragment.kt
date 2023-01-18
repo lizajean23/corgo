@@ -58,7 +58,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
             super.onViewCreated(view, savedInstanceState)
 
             binding.logOut.setOnClickListener {
-
+                val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("LOG OUT")
                     .setMessage("Are you sure you want to log out?")
                     .setCancelable(true)
@@ -109,7 +109,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                     val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
                     binding.username.text = userInfo.username
                     val profilePic = binding.profilePic
-                    Glide.with(this@ProfileFragment).load(userInfo.pfp).into(binding.profilePic)
+                    Glide.with(this@ProfileFragment).load(userInfo.pfp).placeholder(R.drawable.corgi).into(binding.profilePic)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

@@ -47,7 +47,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/selectdate"
-            android:layout_width="345dp"
+            android:layout_width="match_parent"
             android:layout_height="64dp"
             android:textSize="18sp"
             android:backgroundTint="#EFAC4A"
@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/font"
+        android:layout_margin="10dp"
         android:text="Keep track of your pet's vaccines here!"
         android:textColor="#F3935C0A"
         android:textSize="20sp"
