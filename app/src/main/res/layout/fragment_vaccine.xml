@@ -11,72 +11,140 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/vaccinename"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:fontFamily="@font/font"
-            android:background="@drawable/text_round"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="enter vaccine name"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/selectdate"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/vaccinenamelayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="select vaccine date"
+            android:hint="ENTER VACCINE NAME"
+            android:textColorHint="@color/white"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vaccinename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font"
+                android:gravity="center"
+                android:inputType="text"
+                android:drawableLeft="@drawable/enter_name"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="22sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/selectdate"
+            android:layout_width="345dp"
+            android:layout_height="64dp"
+            android:textSize="18sp"
+            android:backgroundTint="#EFAC4A"
+            android:textColor="@color/white"
             android:fontFamily="@font/font"
-            android:backgroundTint="#95E8DDD3"/>
+            android:drawableLeft="@drawable/date_drawable"
+            android:text="select vaccination date"
+            app:cornerRadius="30dp" />
 
         <TextView
             android:id="@+id/vaccinedate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text=""
+            android:fontFamily="@font/font"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="30dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintVertical_bias="0.184">
 
         <TextView
             android:id="@+id/vaccinetext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:layout_weight="7"
+            android:fontFamily="@font/font"
+            android:text="TextView"
+            android:textColor="#F3935C0A"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/datetext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:layout_weight="3"
+            android:fontFamily="@font/font"
+            android:text="TextView"
+            android:textColor="#F3935C0A"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:backgroundTint="#9CED9616"
+        android:drawableLeft="@drawable/addvaccine_drawable"
+        android:fontFamily="@font/font"
+        android:text="ADD RECORD"
+        android:textColor="@color/white"
+        app:cornerRadius="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <TextView
+        android:id="@+id/justtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/font"
+        android:text="Keep track of your pet's vaccines here!"
+        android:textColor="#F3935C0A"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clear"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/clearhistory_drawable"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.893" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

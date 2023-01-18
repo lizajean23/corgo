@@ -1,5 +1,6 @@
 package com.example.corgo1.appFragments
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -23,6 +24,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import org.checkerframework.checker.units.qual.A
 
 class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
@@ -35,6 +37,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         private val auth = FirebaseAuth.getInstance()
         private lateinit var uri:Uri
         private var storageRef = Firebase.storage
+        private lateinit var builder: AlertDialog.Builder
 
 
         override fun onCreateView(
@@ -54,14 +57,26 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
             super.onViewCreated(view, savedInstanceState)
             pfp = binding.profilePic
             storageRef = FirebaseStorage.getInstance()
+            builder = AlertDialog.Builder(requireContext())
 
 
 
 
             binding.logOut.setOnClickListener {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent (view.context, MainActivity::class.java)
-                startActivity(intent)
+
+                builder.setTitle("LOG OUT")
+                    .setMessage("Are you sure you want to log out?")
+                    .setCancelable(true)
+                    .setPositiveButton("Yes"){ dialogInterface, it ->
+                        FirebaseAuth.getInstance().signOut()
+                        val intent = Intent (view.context, MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                    .setNegativeButton("Cancel"){ dialogInterface, it ->
+                        dialogInterface.cancel()
+                    }
+                    .show()
+
 
             }
 //

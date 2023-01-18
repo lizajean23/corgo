@@ -13,7 +13,7 @@
         android:fontFamily="@font/font"
         android:gravity="center"
         android:text="Show off your cute pet or ask anything!"
-        android:textColor="#392302"
+        android:textColor="#F3935C0A"
         android:textSize="19sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="90dp"
         android:background="@drawable/round2"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,78 +39,65 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/descriptionlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="30dp"
+            android:hint="DESCRIBE YOUR POST"
+            android:textColorHint="@color/white"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font"
+                android:inputType="textMultiLine"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="22sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="190dp"
-            android:layout_height="190dp"
-            android:layout_marginStart="15dp"
+            android:layout_width="250dp"
+            android:layout_height="230dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/corgiii"
             android:maxWidth="190dp"
             android:maxHeight="190dp"
+            android:src="@drawable/upload_drawable"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/font"
-            android:text="Enter description here:"
-            android:textColor="#603B04"
-            android:textSize="15sp">
-
-        </TextView>
-
-        <EditText
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/text_round"
-            android:fontFamily="@font/font"
-            android:gravity="center"
-            android:inputType="textMultiLine"
-            android:hint="my dog is the cutest in the world!"
-            android:maxLength="180"
-            android:textColor="#784B08"
-            app:layout_constraintStart_toStartOf="@+id/image"
-            app:layout_constraintTop_toTopOf="@+id/image" />
-
-        <Button
-            android:id="@+id/select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
-            android:backgroundTint="#392302"
-            android:drawableRight="@drawable/upload_drawable"
-            android:fontFamily="@font/font"
-            android:text="select a picture"
-            android:textColor="#FF9800"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/description"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
-
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#392302"
-            android:drawableRight="@drawable/publish_drawable"
+            android:layout_margin="20dp"
+            android:backgroundTint="#F3AA5D"
+            android:drawableEnd="@drawable/publish_drawable"
             android:fontFamily="@font/font"
-            android:text="Publish POST"
-            android:textColor="#FF9800"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="@+id/select"
-            app:layout_constraintTop_toTopOf="@+id/select" />
+            android:text="@string/publish_post"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="-103dp"
+            tools:layout_editor_absoluteY="557dp" />
+
 
     </LinearLayout>
 

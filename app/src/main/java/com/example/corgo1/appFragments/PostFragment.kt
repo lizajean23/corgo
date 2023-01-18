@@ -56,9 +56,6 @@ class PostFragment:Fragment(R.layout.fragment_post) {
 //        imageView = view.findViewById(R.id.imageView)
 //        storageRef = FirebaseStorage.getInstance()
 
-        binding.select.setOnClickListener {
-//            galleryImage.launch("image/*")
-        }
 
         val activityResultLauncher = registerForActivityResult<Intent,ActivityResult>(
             ActivityResultContracts.StartActivityForResult()){ result ->
