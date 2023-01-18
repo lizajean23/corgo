@@ -39,7 +39,6 @@ class PostFragment:Fragment(R.layout.fragment_post) {
     private val dataPosts = FirebaseDatabase.getInstance().getReference("Posts")
     private val dataImages = FirebaseDatabase.getInstance().getReference("userImages")
     private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
-    private val tabTitles = arrayListOf("Post", "Feed", "Vaccines", "Profile")
 
     override fun onCreateView(
         inflater: LayoutInflater,
