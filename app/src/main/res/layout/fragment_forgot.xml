@@ -43,13 +43,14 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:backgroundTint="#FF9800"
         android:fontFamily="@font/font"
+        app:cornerRadius="30dp"
         android:text="Reset Password"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -62,8 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/font"
-        android:text="GO BACK TO SIGN IN"
-        android:textColor="#644011"
+        android:text="BACK TO SIGN IN"
+        android:textColor="#F3935C0A"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

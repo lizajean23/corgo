@@ -110,7 +110,7 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,6 +119,8 @@
             android:backgroundTint="#FF9800"
             android:fontFamily="@font/font"
             android:layout_marginTop="20dp"
+            app:cornerRadius="30dp"
+            android:textColor="@color/white"
             android:text="SIGN UP"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -136,8 +138,8 @@
         android:layout_marginTop="88dp"
         android:fontFamily="@font/font"
         android:gravity="center"
-        android:text="GO BACK TO SIGN IN"
-        android:textColor="#644011"
+        android:text="BACK TO SIGN IN"
+        android:textColor="#F3935C0A"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
