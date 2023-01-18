@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.corgo1.MainActivity
 import com.example.corgo1.R
@@ -58,8 +57,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
             super.onViewCreated(view, savedInstanceState)
             pfp = binding.profilePic
             storageRef = FirebaseStorage.getInstance()
-//            builder = AlertDialog.Builder(requireContext())
-//            val controller = Navigation.findNavController(view)
+            builder = AlertDialog.Builder(requireContext())
 
 
 
@@ -81,7 +79,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
 
             }
-
 //
 //            binding.profilePic.setOnClickListener{
 //                galleryImage.launch("image/*")
