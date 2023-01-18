@@ -48,7 +48,7 @@ class ForgotPasswordFragment:Fragment(R.layout.fragment_forgot) {
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Enter e-mail", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Enter email", Toast.LENGTH_SHORT).show()
             }
 
         }

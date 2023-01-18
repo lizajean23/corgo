@@ -37,8 +37,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font"
                 android:gravity="center"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:inputType="text"
+                android:drawableLeft="@drawable/enter_name"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
                 android:textSize="22sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -48,10 +50,11 @@
             android:layout_width="345dp"
             android:layout_height="64dp"
             android:textSize="18sp"
-            android:backgroundTint="#95C58144"
+            android:backgroundTint="#EFAC4A"
             android:textColor="@color/white"
             android:fontFamily="@font/font"
-            android:text="select vaccine date"
+            android:drawableLeft="@drawable/date_drawable"
+            android:text="select vaccination date"
             app:cornerRadius="30dp" />
 
         <TextView
@@ -75,7 +78,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-        app:layout_constraintVertical_bias="0.252">
+        app:layout_constraintVertical_bias="0.184">
 
         <TextView
             android:id="@+id/vaccinetext"
@@ -84,7 +87,8 @@
             android:layout_weight="7"
             android:fontFamily="@font/font"
             android:text="TextView"
-            android:textColor="#F3935C0A" />
+            android:textColor="#F3935C0A"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/datetext"
@@ -93,72 +97,54 @@
             android:layout_weight="3"
             android:fontFamily="@font/font"
             android:text="TextView"
-            android:textColor="#F3935C0A" />
+            android:textColor="#F3935C0A"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#95C58144"
+        android:backgroundTint="#9CED9616"
+        android:drawableLeft="@drawable/addvaccine_drawable"
         android:fontFamily="@font/font"
+        android:text="ADD RECORD"
         android:textColor="@color/white"
-        android:text="ADD VACCINE RECORD"
         app:cornerRadius="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <TextView
         android:id="@+id/justtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/font"
         android:text="Keep track of your pet's vaccines here!"
         android:textColor="#F3935C0A"
-        android:fontFamily="@font/font"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clear"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/clearhistory_drawable"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/save">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/font"
-            android:text="Vaccine Name"
-
-            android:textColor="#F34C2F03"
-            android:textSize="20sp">
-
-        </TextView>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/font"
-            android:text="Vaccine Date"
-            android:textColor="#F34C2F03"
-            android:textSize="20sp">
-
-        </TextView>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.893" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

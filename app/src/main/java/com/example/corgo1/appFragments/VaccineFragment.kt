@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import com.example.corgo1.R
 import com.example.corgo1.databinding.FragmentVaccineBinding
@@ -49,16 +50,16 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
                 return@setOnClickListener
             }
             val vaccines = binding.vaccinetext.text.toString()
-            val vaccinesUpdated = vaccines + '\n' + vaccineName
+            val vaccinesUpdated = vaccines + '\n' + '\n'+ vaccineName
 
             val dates = binding.datetext.text.toString()
-            val datesUpdated = dates + '\n' + vaccineDate
+            val datesUpdated = dates + '\n' + '\n'+ vaccineDate
 
             binding.vaccinetext.text = vaccinesUpdated
             binding.datetext.text = datesUpdated
 
             binding.vaccinename.setText("")
-            binding.vaccinedate.setText("")
+            binding.vaccinedate.text = ""
 
             editor.apply{
                 putString("vaccine", vaccinesUpdated)
@@ -81,6 +82,12 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show()
 
         }
+
+
+        binding.clear.setOnClickListener {
+            binding.vaccinetext.text= ""
+            binding.datetext.text = ""
+        }
     }
 
     private fun updateLabel(myCalendar: Calendar) {
@@ -89,6 +96,7 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
         binding.vaccinedate.text = sdf.format(myCalendar.time)
 
     }
+
 
 
     override fun onDestroy() {
