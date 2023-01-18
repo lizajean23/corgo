@@ -1,19 +1,15 @@
 package com.example.corgo1.appFragments
 
-import android.app.AlertDialog
+
 import android.os.Bundle
-import android.os.ParcelFileDescriptor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.corgo1.Posts
 import com.example.corgo1.R
-import com.example.corgo1.UserImage
 import com.example.corgo1.adapter.RecyclerViewPostAdapter
 import com.example.corgo1.databinding.FragmentFeedBinding
 import com.google.firebase.database.DataSnapshot
@@ -53,13 +49,14 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
 
 
-        dataList = arrayListOf()
+        dataList = ArrayList()
         adapter = RecyclerViewPostAdapter(requireContext(),dataList)
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
         databaseReference.addValueEventListener(object : ValueEventListener{
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                dataList.clear()
                 if (snapshot.exists()){
                     for(dataSnapShot in snapshot.children){
                         val dataClass = dataSnapShot.getValue(Posts::class.java)

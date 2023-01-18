@@ -8,9 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.corgo1.Posts
-import com.example.corgo1.UserImage
 import com.example.corgo1.R
-import com.example.corgo1.appFragments.FeedFragment
 
 class RecyclerViewPostAdapter(
 
@@ -26,6 +24,7 @@ class RecyclerViewPostAdapter(
         val username : TextView = itemView.findViewById(R.id.username)
         val description : TextView = itemView.findViewById(R.id.postDescription)
         val image :ImageView = itemView.findViewById(R.id.postPicture)
+        val pfp : ImageView = itemView.findViewById(R.id.Pfp)
 
 
 
@@ -49,6 +48,7 @@ class RecyclerViewPostAdapter(
         Glide.with(context).load(posts[position].image).into(holder.image)
         holder.username.text = posts[position].username
         holder.description.text = posts[position].description
+        Glide.with(context).load(posts[position].pfp).into(holder.pfp)
 
 
 

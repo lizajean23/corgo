@@ -1,5 +1,6 @@
 package com.example.corgo1.appFragments
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -32,13 +34,10 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
         private var _binding: FragmentProfileBinding? = null
         private val binding get() = _binding!!
-        private lateinit var pfp: ImageView
-        private val dataImages = FirebaseDatabase.getInstance().getReference("userImage")
-        private val dataPosts = FirebaseDatabase.getInstance().getReference("Posts")
-        private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
         private val auth = FirebaseAuth.getInstance()
-        private lateinit var uri:Uri
-        private var storageRef = Firebase.storage
+        private val dataUser = FirebaseDatabase.getInstance().getReference("UserInfo")
+        private var uri:Uri? = null
+        private var imageUrl : String? = null
         private lateinit var builder: AlertDialog.Builder
 
 
@@ -57,12 +56,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
-            pfp = binding.profilePic
-            storageRef = FirebaseStorage.getInstance()
-            builder = AlertDialog.Builder(requireContext())
-
-
-
 
             binding.logOut.setOnClickListener {
 
@@ -82,70 +75,89 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
             }
 
-                  binding.changepass.setOnClickListener {
-                      val showDialog = ChangePassDialog()
-                      showDialog.show((activity as AppCompatActivity).supportFragmentManager, "showDialog")
-                  }
-//
-//            binding.profilePic.setOnClickListener{
-//                galleryImage.launch("image/*")
-//            }
-//
-//            binding.uploadPfp.setOnClickListener {
-//            storageRef.getReference("images").child(System.currentTimeMillis().toString())
-//                .putFile(uri)
-//                .addOnSuccessListener {
-//                        task ->
-//                    task.metadata!!.reference!!.downloadUrl
-//                        .addOnSuccessListener{
-//                            val userId = FirebaseAuth.getInstance().currentUser!!.uid
-//                            val mapImage = mapOf(
-//                                "url" to it.toString()
-//                            )
-//
-//                            dataPosts.child(id.toString()).child("userImages").setValue(pfp)
-//
-//                            val databaseReference  = FirebaseDatabase.getInstance().getReference("userImages")
-//                            databaseReference.child(userId).setValue(mapImage)
-//
-//                                .addOnSuccessListener {
-//                                    Toast.makeText(activity, "Uploaded picture", Toast.LENGTH_SHORT)
-//                                        .show()
-//                                }
-//                                .addOnFailureListener {
-//                                    Toast.makeText(activity, "could not up", Toast.LENGTH_SHORT).show()
-//                                }
-//                        }
-//                }
-//            }
-//
+            binding.changepass.setOnClickListener {
+                val showDialog = ChangePassDialog()
+                showDialog.show((activity as AppCompatActivity).supportFragmentManager, "showDialog")
+            }
+
+            val activityResultLauncher = registerForActivityResult<Intent, ActivityResult>(
+                ActivityResultContracts.StartActivityForResult()){ result ->
+                if(result.resultCode == Activity.RESULT_OK){
+                    val data = result.data
+                    uri = data!!.data
+                    binding.profilePic.setImageURI(uri)
+                }else{
+                    Toast.makeText(requireContext(), "No image Selected", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            binding.profilePic.setOnClickListener{
+                val photoPicker = Intent(Intent.ACTION_PICK)
+                photoPicker.type = "image/*"
+                activityResultLauncher.launch(photoPicker)
+            }
+            binding.uploadPfp.setOnClickListener{
+                saveData()
+
+            }
+
             dataUser.child(auth.currentUser?.uid!!).addValueEventListener(object:
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (!snapshot.hasChild("username")) {
 
-                    }
                     val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
-                     binding.username.text = userInfo.username
+                    binding.username.text = userInfo.username
+                    val profilePic = binding.profilePic
+                    Glide.with(this@ProfileFragment).load(userInfo.pfp).into(binding.profilePic)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                 }
 
             })
-//
-//
-//        }
-//        private val galleryImage = registerForActivityResult(
-//        ActivityResultContracts.GetContent(),
-//        ActivityResultCallback{
-//            pfp.setImageURI(it)
-//            if (it != null) {
-//                uri = it
-//            }
-//
+
+
         }
-//    )
+
+    private fun saveData() {
+        val storageReference = FirebaseStorage.getInstance().reference.child("pfpImages")
+            .child(uri!!.lastPathSegment!!)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(R.layout.progress_layout)
+        val dialog = builder.create()
+        dialog.show()
+
+        storageReference.putFile(uri!!).addOnSuccessListener { taskSnapshot ->
+            val uriTask = taskSnapshot.storage.downloadUrl
+            while (!uriTask.isComplete);
+            val urlImage = uriTask.result
+            imageUrl = urlImage.toString()
+            uploadData()
+            dialog.dismiss()
+
+        }.addOnFailureListener{
+            dialog.dismiss()
+        }
+
+
+    }
+
+    private fun uploadData() {
+        dataUser.child(auth.currentUser?.uid!!).get().addOnSuccessListener {
+
+            if(it.exists()){
+
+                dataUser.child(auth.currentUser?.uid!!.toString()).child("pfp").setValue(imageUrl)
+
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "You uploaded your profile picture", Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+        }
+    }
 
         override fun onDestroy() {
             super.onDestroy()
