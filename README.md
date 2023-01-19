@@ -40,5 +40,5 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 - The vaccines fragment uses shared preferences to store users entered data.
 - Alert dialogs are used on sensitive cases such as logging out from the account, changing the password, or deleting the vaccine records, as well as loading screens.
 
-
+##
 ## WE HOPE YOU ENJOY OUR APP <3
