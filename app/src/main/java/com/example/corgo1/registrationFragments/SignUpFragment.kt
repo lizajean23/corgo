@@ -48,7 +48,8 @@ class SignUpFragment:Fragment(R.layout.fragment_signup) {
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
                             data.child(firebaseAuth.currentUser?.uid!!).child("username").setValue(username)
-                            Toast.makeText(requireContext(), "Go back,to Log in your account ", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show()
+                            FirebaseAuth.getInstance().signOut()
                         }else{
                             Toast.makeText(requireContext(), it.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                         }
