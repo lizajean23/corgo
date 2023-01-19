@@ -34,8 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-
-                android:hint="enter new password" />
+                android:hint="Enter new password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -56,13 +55,13 @@
                 android:id="@+id/pass2text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="repeat new password"
+                android:hint="Repeat password"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/changebutton"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
