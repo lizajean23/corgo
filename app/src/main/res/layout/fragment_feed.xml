@@ -14,6 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="100"
+        tools:itemCount="500"
         tools:listitem="@layout/item_posts" />
 </androidx.constraintlayout.widget.ConstraintLayout>

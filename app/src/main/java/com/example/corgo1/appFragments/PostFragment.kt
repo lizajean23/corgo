@@ -92,6 +92,8 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             imageUrl= urlImage.toString()
             uploadData()
             binding.description.setText("")
+            binding.imageView.setImageResource(R.drawable.upload_drawable)
+
             dialog.dismiss() }
             .addOnFailureListener{
             dialog.dismiss()

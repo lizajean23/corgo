@@ -12,11 +12,11 @@
 
     <ImageView
         android:id="@+id/heart"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="55dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="280dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/date_drawable"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/paw"
         app:layout_constraintBottom_toTopOf="@id/postPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -54,7 +54,7 @@
         app:shapeAppearanceOverlay="@style/Circular"/>
 
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/postPicture"
         android:layout_width="match_parent"
         android:layout_marginLeft="5dp"
@@ -65,7 +65,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Pfp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        app:shapeAppearanceOverlay="@style/postRound"
+        />
 
     <TextView
         android:id="@+id/postDescription"
