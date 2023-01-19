@@ -1,7 +1,7 @@
 
 # CORGO
 ![cover](https://user-images.githubusercontent.com/115420570/213478711-894029db-d2b2-4588-8040-dd621627d591.jpg)
-Introducing CORGO! The first social media platform dedicated entirely to our best friends - our pets! Had a bad day? Simply open up CORGO, sit back and enjoy scrolling through the cutest feed you'll ever find!
+Introducing CORGO! The first social media platform dedicated entirely to our best friends - our pets! Having a bad day? Simply open up CORGO, sit back and enjoy scrolling through the cutest feed you'll ever find!
 
 ## OVERVIEW
 
@@ -22,7 +22,6 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 - After uplpoading the post, it will appear on the feed with the user's profile picture and username.
 - Users can change password from their profile or request a password reset from the login screen.
 - Users can keep track of their pet's important vaccines on the Vaccine page.
-
 
 ##
 
