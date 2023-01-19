@@ -51,16 +51,18 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
 
 
-
         dataList = ArrayList()
         adapter = RecyclerViewPostAdapter(requireContext(),dataList)
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
+
+
         val builder = AlertDialog.Builder(requireContext())
         builder.setCancelable(false)
         builder.setView(R.layout.loading_layout)
         val dialog = builder.create()
         dialog.show()
+
         databaseReference.addValueEventListener(object : ValueEventListener{
 
 
