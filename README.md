@@ -19,7 +19,7 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 
 - Users can change their profile picture from the profile.
 - Users can upload posts with description and selected picture from their gallery.
-- After uplpoading the post, it will appear on the feed with the user's profile picture and username.
+- After uploading the post, it will appear on the feed with the user's profile picture and username.
 - Users can change password from their profile or request a password reset from the login screen.
 - Users can keep track of their pet's important vaccines on the Vaccine page.
 
