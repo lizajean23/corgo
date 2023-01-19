@@ -13,5 +13,11 @@ class MainActivity : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         actionBar?.hide()
 
+
+
+    }
+
+    override fun onBackPressed() {
+
     }
 }

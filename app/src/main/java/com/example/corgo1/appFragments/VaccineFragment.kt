@@ -85,8 +85,7 @@ class VaccineFragment:Fragment(R.layout.fragment_vaccine) {
                 .setMessage("Are you sure you want to delete all vaccine records?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){ dialogInterface, it ->
-                    binding.vaccinetext.text= ""
-                    binding.datetext.text = ""
+                    editor.clear()
                 }
                 .setNegativeButton("Cancel"){ dialogInterface, it ->
                     dialogInterface.cancel()
