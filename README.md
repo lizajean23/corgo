@@ -21,4 +21,10 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 
 ## TECHNICAL DETAILS
 
-- 
+- Navigation component is used to navigate between the login fragments.
+- ViewPager2 is used to navigate between the app's main fragments.
+- RecyclerView is used in the feed fragment for displaying user posts.
+- Profile pictures and post pictures are stored in the Firebase Storage.
+- Posts: description, the current user & their profile picture, and the uploaded image is stored in Firebase Realtime Database.
+- The vaccines fragment uses shared preferences to store users entered data.
+- Alert dialogs are used on sensitive cases such as logging out from the account, changing the password, or deleting the vaccine records.
