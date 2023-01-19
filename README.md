@@ -19,6 +19,9 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 - Users can change password from their profile or request a password reset from the login screen.
 - Users can keep track of their pet's important vaccines on the Vaccine page.
 
+![apppp](https://user-images.githubusercontent.com/115420570/213485698-a84f79b5-9491-4f91-841e-685fdf352b7d.png)
+
+
 ## TECHNICAL DETAILS
 
 - Navigation component is used to navigate between the login fragments.
