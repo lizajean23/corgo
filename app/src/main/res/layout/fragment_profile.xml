@@ -34,7 +34,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,79 +46,82 @@
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               android:layout_gravity="center"
-                android:text="Username"
+                android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
+                android:text="Username"
                 android:textSize="19sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/profilePic"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginBottom="10dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/corgi"
                 android:scaleType="centerCrop"
-                tools:srcCompat="@tools:sample/avatars"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                tools:srcCompat="@tools:sample/avatars" />
 
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/uploadPfp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="40dp"
             android:backgroundTint="#F3AA5D"
-            android:fontFamily="@font/font"
-            app:cornerRadius="30dp"
-            android:text="Upload pfp"
             android:drawableLeft="@drawable/pfpupload_drawable"
+            android:fontFamily="@font/font"
+            android:text="Upload pfp"
             android:textColor="#EFEEED"
             android:textSize="18sp"
-            android:layout_gravity="center"
-            tools:layout_editor_absoluteX="248dp"
-            tools:layout_editor_absoluteY="344dp"
+            app:cornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="40dp"/>
+            tools:layout_editor_absoluteX="248dp"
+            tools:layout_editor_absoluteY="344dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/changepass"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:backgroundTint="#F3AA5D"
-            android:foregroundGravity="center"
+            android:drawableLeft="@drawable/changepass_drawable"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
             android:fontFamily="@font/font"
-            app:cornerRadius="30dp"
+            android:foregroundGravity="center"
             android:gravity="center"
             android:text="change password"
-            android:drawableLeft="@drawable/changepass_drawable"
             android:textColor="#F8F7F6"
             android:textSize="20sp"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center"
+            app:cornerRadius="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/logOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="80dp"
             android:backgroundTint="#F3AA5D"
+            android:drawableEnd="@drawable/corgiko"
             android:fontFamily="@font/font"
             android:text="log out"
-            android:textSize="20sp"
             android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="30dp"
-            android:drawableEnd="@drawable/corgiko"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
