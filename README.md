@@ -9,6 +9,8 @@ Introducing CORGO! The first social media platform dedicated entirely to our bes
 
 CORGO is an android social media app which came to life thanks to the Firebase Authentication, Realtime Database and Storage services. After registration, the users can sign into their account, edit their personal profile, upload posts with pictures and see other user's posts.
 
+##
+
 ![scren2](https://user-images.githubusercontent.com/115420570/213482928-48ff2d6c-2566-4cb9-9d16-bad7faea5943.png)
 
 ##
