@@ -110,6 +110,20 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/rules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/rules_drawable"
+            android:fontFamily="@font/font"
+            android:textColor="#F3935C0A"
+            android:textSize="20sp"
+            android:text=" RULES">
+
+        </TextView>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/registration"
             android:layout_width="wrap_content"
@@ -118,7 +132,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="#FF9800"
             android:fontFamily="@font/font"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             app:cornerRadius="30dp"
             android:textColor="#F3935C0A"
             android:text="SIGN UP"
