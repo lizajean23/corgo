@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,7 @@ import com.example.corgo1.Posts
 import com.example.corgo1.R
 import com.example.corgo1.adapter.RecyclerViewPostAdapter
 import com.example.corgo1.databinding.FragmentFeedBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -25,6 +28,9 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
     private val binding get() = _binding!!
     private lateinit var dataList :ArrayList<Posts>
     private lateinit var adapter: RecyclerViewPostAdapter
+    private lateinit var likes:TextView
+    private lateinit var heart : ImageView
+
 
     private lateinit var databaseReference: DatabaseReference
 
@@ -46,6 +52,8 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(requireContext())
+
+
 
 
 
@@ -79,6 +87,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
                 Toast.makeText(requireContext(), "cool", Toast.LENGTH_SHORT).show()
             }
         })
+
     }
 
 

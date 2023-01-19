@@ -11,16 +11,19 @@
     android:background="@drawable/round2">
 
     <ImageView
+        android:id="@+id/heart"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginLeft="280dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/heart_drawable"
+        android:background="@drawable/date_drawable"
         app:layout_constraintBottom_toTopOf="@id/postPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
     </ImageView>
+
 
     <TextView
         android:id="@+id/username"
@@ -37,7 +40,7 @@
         app:layout_constraintStart_toEndOf="@+id/Pfp"
         app:layout_constraintTop_toTopOf="@+id/Pfp" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/Pfp"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -47,7 +50,8 @@
         android:background="@drawable/corgi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        app:shapeAppearanceOverlay="@style/Circular"/>
 
 
     <ImageView
@@ -55,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_height="310dp"
+        android:layout_height="320dp"
         android:layout_marginTop="5dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
