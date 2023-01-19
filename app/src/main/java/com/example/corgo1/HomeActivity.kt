@@ -5,9 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.viewpager2.widget.ViewPager2
 import com.example.corgo1.adapter.ViewPagerFragmentAdapter
-import com.example.corgo1.databinding.ActivityHomeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

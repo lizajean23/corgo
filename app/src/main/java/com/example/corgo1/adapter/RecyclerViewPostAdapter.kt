@@ -26,14 +26,6 @@ class RecyclerViewPostAdapter(
         val pfp : ImageView = itemView.findViewById(R.id.Pfp)
 
 
-
-
-
-
-
-
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {

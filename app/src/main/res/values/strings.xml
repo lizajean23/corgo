@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Corgo1</string>
+    <string name="app_name">Corgo</string>
     <string name="publish_post">Publish POST</string>
+    <string name="describe_your_post">DESCRIBE YOUR POST</string>
 </resources>

@@ -30,6 +30,7 @@ class ChangePassDialog: DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.changebutton.setOnClickListener {
+
             val pass1 = binding.pass1text.text.toString()
             val pass2 = binding.pass2text.text.toString()
 
@@ -44,10 +45,10 @@ class ChangePassDialog: DialogFragment() {
                 }
             }else if(pass1.length < 6){
                 binding.pass1.helperText= "Password should be minimum 6 characters"
-            }else if(pass2 != pass1){
-                binding.pass2.helperText = "Passwords do not match"
-            }else if(pass1.isEmpty() || pass2.isEmpty()){
+            } else if(pass1.isEmpty() || pass2.isEmpty()){
                 Toast.makeText(requireContext(), "Fill in both fields", Toast.LENGTH_SHORT).show()
+            } else{
+                binding.pass2.helperText = "Passwords do not match!"
             }
 
         }

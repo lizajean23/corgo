@@ -8,10 +8,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -25,10 +23,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import org.checkerframework.checker.units.qual.A
+
 
 class ProfileFragment:Fragment(R.layout.fragment_profile) {
 
@@ -39,7 +35,6 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
         private var uri:Uri? = null
         private var imageUrl : String? = null
         private var selected : Boolean = false
-        private lateinit var builder: AlertDialog.Builder
 
 
         override fun onCreateView(
@@ -103,7 +98,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                 if (selected){
                     saveData()
                 }else{
-                    Toast.makeText(requireContext(), "Select picture to upload your post", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Select new picture to upload", Toast.LENGTH_SHORT).show()
                 }
 
             }
@@ -115,7 +110,7 @@ class ProfileFragment:Fragment(R.layout.fragment_profile) {
                     val userInfo = snapshot.getValue(com.example.corgo1.UserInfo::class.java) ?: return
                     binding.username.text = userInfo.username
                     val profilePic = binding.profilePic
-                    Glide.with(this@ProfileFragment).load(userInfo.pfp).into(binding.profilePic)
+                    Glide.with(this@ProfileFragment).load(userInfo.pfp).into(profilePic)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
