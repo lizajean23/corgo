@@ -68,7 +68,6 @@ class PostFragment:Fragment(R.layout.fragment_post) {
         binding.upload.setOnClickListener{
             if (selected){
                 saveData()
-                binding.description.setText("")
             }else{
                 Toast.makeText(requireContext(), "Select picture to upload your post", Toast.LENGTH_SHORT).show()
             }
@@ -92,6 +91,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
             val urlImage = uriTask.result
             imageUrl= urlImage.toString()
             uploadData()
+            binding.description.setText("")
             dialog.dismiss() }
             .addOnFailureListener{
             dialog.dismiss()
