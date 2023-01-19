@@ -20,7 +20,6 @@ class LogInFragment:Fragment(R.layout.fragment_login) {
     private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private var firebaseAuth =  FirebaseAuth.getInstance()
-    private lateinit var  sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
