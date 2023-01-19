@@ -11,6 +11,8 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 
 ![scren2](https://user-images.githubusercontent.com/115420570/213482928-48ff2d6c-2566-4cb9-9d16-bad7faea5943.png)
 
+##
+
 ## WHAT IS POSSIBLE IN OUR APP?
 
 - Users can change their profile picture from the profile.
@@ -18,6 +20,9 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 - After uplpoading the post, it will appear on the feed with the user's profile picture and username.
 - Users can change password from their profile or request a password reset from the login screen.
 - Users can keep track of their pet's important vaccines on the Vaccine page.
+
+
+##
 
 ![apppp](https://user-images.githubusercontent.com/115420570/213485698-a84f79b5-9491-4f91-841e-685fdf352b7d.png)
 
