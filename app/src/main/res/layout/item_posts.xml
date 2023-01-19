@@ -9,6 +9,19 @@
     android:layout_marginBottom="20dp"
     android:layout_height="500dp"
     android:background="@drawable/round2">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/heart_drawable"
+        app:layout_constraintBottom_toTopOf="@id/postPicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </ImageView>
+
     <TextView
         android:id="@+id/username"
         android:fontFamily="@font/font"

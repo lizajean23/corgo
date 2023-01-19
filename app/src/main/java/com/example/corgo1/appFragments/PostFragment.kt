@@ -44,7 +44,7 @@ class PostFragment:Fragment(R.layout.fragment_post) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activityResultLauncher = registerForActivityResult<Intent,ActivityResult>(
+        val activityResultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()){ result ->
             if(result.resultCode == RESULT_OK){
                 val data = result.data
@@ -68,11 +68,10 @@ class PostFragment:Fragment(R.layout.fragment_post) {
         binding.upload.setOnClickListener{
             if (selected){
                 saveData()
+                binding.description.setText("")
             }else{
                 Toast.makeText(requireContext(), "Select picture to upload your post", Toast.LENGTH_SHORT).show()
             }
-            
-
         }
 
     }
