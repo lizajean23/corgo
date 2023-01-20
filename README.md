@@ -44,4 +44,5 @@ CORGO is an android social media app which came to life thanks to the Firebase A
 
 ## HOPE YOU ENJOY OUR APP <3
 
-[image](https://user-images.githubusercontent.com/115722598/213474298-8c7a3d9d-efc1-41be-a9c3-b4297e4c2f65.png)
+![scorgo](https://user-images.githubusercontent.com/115420570/213692835-74484081-7baa-435f-a466-97f59f15a870.png)
+
