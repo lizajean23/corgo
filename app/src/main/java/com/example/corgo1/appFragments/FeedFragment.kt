@@ -19,11 +19,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class FeedFragment:Fragment(R.layout.fragment_feed  ) {
+class FeedFragment : Fragment(R.layout.fragment_feed) {
 
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
-    private lateinit var dataList :ArrayList<Posts>
+    private lateinit var dataList: ArrayList<Posts>
     private lateinit var adapter: RecyclerViewPostAdapter
 
 
@@ -38,7 +38,7 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
 
     ): View {
 
-        _binding = FragmentFeedBinding.inflate(inflater,container,false)
+        _binding = FragmentFeedBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -47,12 +47,8 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(requireContext())
-
-
-
-
         dataList = ArrayList()
-        adapter = RecyclerViewPostAdapter(requireContext(),dataList)
+        adapter = RecyclerViewPostAdapter(requireContext(), dataList)
         binding.recyclerViewPost.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts")
 
@@ -63,18 +59,19 @@ class FeedFragment:Fragment(R.layout.fragment_feed  ) {
         val dialog = builder.create()
         dialog.show()
 
-        databaseReference.addValueEventListener(object : ValueEventListener{
+        databaseReference.addValueEventListener(object : ValueEventListener {
 
 
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 dataList.clear()
-                if (snapshot.exists()){
-                    for(dataSnapShot in snapshot.children){
+                if (snapshot.exists()) {
+                    for (dataSnapShot in snapshot.children) {
                         val dataClass = dataSnapShot.getValue(Posts::class.java)
                         dataList.add(dataClass!!)
                     }
-                    binding.recyclerViewPost.adapter = RecyclerViewPostAdapter(requireContext(),dataList)
+                    binding.recyclerViewPost.adapter =
+                        RecyclerViewPostAdapter(requireContext(), dataList)
                     dialog.dismiss()
 
                 }

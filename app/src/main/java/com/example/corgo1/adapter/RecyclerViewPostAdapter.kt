@@ -36,10 +36,13 @@ class RecyclerViewPostAdapter(
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
 
-        Glide.with(context).load(posts[position].image).into(holder.image)
-        holder.username.text = posts[position].username
-        holder.description.text = posts[position].description
-        Glide.with(context).load(posts[position].pfp).into(holder.pfp)
+        val reversedPosition = posts.size - 1 - position
+        val post = posts[reversedPosition]
+
+        Glide.with(context).load(post.image).into(holder.image)
+        holder.username.text = post.username
+        holder.description.text = post.description
+        Glide.with(context).load(post.pfp).into(holder.pfp)
 
 
 
